@@ -13,39 +13,88 @@
 
 ---
 
+## 📐 MANDATORY FORMATTING RULES
+
+> These rules ensure the final report is READABLE across all AI chat interfaces,
+> markdown renderers, and export formats. Violation = unprofessional report.
+
+### Format Rule 1: NO ASCII ART BOXES
+```
+❌ FORBIDDEN:
+╔══════════════════════╗
+║  Some content        ║
+╚══════════════════════╝
+
+❌ FORBIDDEN:
+┌──────┬──────┐
+│ Col1 │ Col2 │
+└──────┴──────┘
+
+✅ REQUIRED: Use standard Markdown tables:
+| Column 1 | Column 2 |
+|----------|----------|
+| Data     | Data     |
+
+✅ REQUIRED: Use Markdown headers and blockquotes for emphasis:
+> **OVERALL HEALTH SCORE: 58/100**
+```
+
+### Format Rule 2: CLEAR SECTION SEPARATION
+Every major section MUST be separated by:
+- A `---` horizontal rule
+- A `##` level-2 heading
+- At least one blank line before and after
+
+### Format Rule 3: ARTIFACT FILE OUTPUT
+The final report MUST be output as a **saved artifact/file** (Markdown `.md` file),
+NOT just printed in the chat. This ensures:
+- The user can revisit it later
+- Formatting is preserved
+- It can be shared with stakeholders
+
+### Format Rule 4: FULL FINDINGS REGISTRY IS MANDATORY
+You MUST produce COMPONENT F4 (Full Findings Registry). Every single finding from
+every phase must be listed. If you skip this, the report is INCOMPLETE.
+
+---
+
 ## 📋 FINAL DELIVERY COMPONENTS
 
 ### COMPONENT F1: Executive Summary
 ```
-Produce a HIGH-LEVEL summary for non-technical stakeholders:
+Produce a HIGH-LEVEL summary for non-technical stakeholders using
+standard Markdown formatting:
+```
 
-╔══════════════════════════════════════════════════════════╗
-║              📱 MOBILE APP QA REPORT                     ║
-║              Executive Summary                           ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║  App Name:        [Name]                                 ║
-║  Framework:       [Framework]                            ║
-║  Version Tested:  [Version]                              ║
-║  Date:            [Date]                                 ║
-║  Reviewer:        AI Static Analysis                     ║
-║                                                          ║
-╠══════════════════════════════════════════════════════════╣
-║  OVERALL HEALTH SCORE:  [X/100]                          ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║  🔴 Critical Findings:  [count]                          ║
-║  🟠 High Findings:      [count]                          ║
-║  🟡 Medium Findings:    [count]                          ║
-║  🔵 Low Findings:       [count]                          ║
-║  ─────────────────────────────────                       ║
-║  📊 Total Findings:     [count]                          ║
-║                                                          ║
-║  RELEASE RECOMMENDATION:                                 ║
-║  [🟢 READY / 🟡 READY WITH FIXES / 🔴 NOT READY]       ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
+**Template (copy and fill):**
 
+```markdown
+# 📱 Mobile App QA Report — Executive Summary
+
+| Field | Value |
+|-------|-------|
+| **App Name** | [Name] |
+| **Framework** | [Framework] |
+| **Version Tested** | [Version] |
+| **Date** | [Date] |
+| **Reviewer** | AI Static Analysis |
+
+---
+
+> **OVERALL HEALTH SCORE: [X/100]**
+
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical | [count] |
+| 🟠 High | [count] |
+| 🟡 Medium | [count] |
+| 🔵 Low | [count] |
+| **📊 Total** | **[count]** |
+
+> **RELEASE RECOMMENDATION: [🟢 READY / 🟡 READY WITH FIXES / 🔴 NOT READY]**
+```
+
+```
 SCORING GUIDE:
   90-100: Excellent — minor improvements only
   70-89:  Good — some issues to address before release
@@ -61,25 +110,29 @@ RELEASE DECISION:
 
 ### COMPONENT F2: Cross-Reference Verification Matrix
 ```
-THIS IS THE ANTI-SKIP PROOF. Complete this ENTIRE matrix honestly:
+THIS IS THE ANTI-SKIP PROOF. Complete this ENTIRE matrix honestly.
+```
 
-┌───────────────────────────┬───────┬──────────┬──────────┬────────────┐
-│ Phase                     │ Files │ Findings │Citations │ Gate       │
-│                           │ Read  │ Count    │ Count    │ Status     │
-├───────────────────────────┼───────┼──────────┼──────────┼────────────┤
-│ 1. Architecture Review    │ [n]   │ [n]      │ [n]/5min │ PASS/FAIL  │
-│ 2. UI/UX Testing          │ [n]   │ [n]      │ [n]/8min │ PASS/FAIL  │
-│ 3. Logic & Functional     │ [n]   │ [n]      │ [n]/8min │ PASS/FAIL  │
-│ 4. Security Audit         │ [n]   │ [n]      │[n]/10min │ PASS/FAIL  │
-│ 5. Performance            │ [n]   │ [n]      │ [n]/6min │ PASS/FAIL  │
-│ 6. Platform Compatibility │ [n]   │ [n]      │ [n]/5min │ PASS/FAIL  │
-│ 7. API & Network          │ [n]   │ [n]      │ [n]/6min │ PASS/FAIL  │
-│ 8. State & Data           │ [n]   │ [n]      │ [n]/5min │ PASS/FAIL  │
-│ 9. Error & Crash          │ [n]   │ [n]      │ [n]/6min │ PASS/FAIL  │
-├───────────────────────────┼───────┼──────────┼──────────┼────────────┤
-│ TOTALS                    │ [N]   │ [N]      │ [N]/65   │ [X]/9      │
-└───────────────────────────┴───────┴──────────┴──────────┴────────────┘
+**Template (copy and fill):**
 
+```markdown
+## Cross-Reference Verification Matrix
+
+| Phase | Files Read | Findings | Citations | Gate Status |
+|-------|-----------|----------|-----------|-------------|
+| 1. Architecture Review | [n] | [n] | [n] / 5 min | PASS/FAIL |
+| 2. UI/UX Testing | [n] | [n] | [n] / 8 min | PASS/FAIL |
+| 3. Logic & Functional | [n] | [n] | [n] / 8 min | PASS/FAIL |
+| 4. Security Audit | [n] | [n] | [n] / 10 min | PASS/FAIL |
+| 5. Performance | [n] | [n] | [n] / 6 min | PASS/FAIL |
+| 6. Platform Compatibility | [n] | [n] | [n] / 5 min | PASS/FAIL |
+| 7. API & Network | [n] | [n] | [n] / 6 min | PASS/FAIL |
+| 8. State & Data | [n] | [n] | [n] / 5 min | PASS/FAIL |
+| 9. Error & Crash | [n] | [n] | [n] / 6 min | PASS/FAIL |
+| **TOTALS** | **[N]** | **[N]** | **[N] / 65** | **[X]/9** |
+```
+
+```
 VALIDATION RULES:
   ❌ If any phase has 0 files read → REVIEW IS INCOMPLETE
   ❌ If any phase has citations below minimum → REVIEW IS INCOMPLETE
@@ -89,18 +142,24 @@ VALIDATION RULES:
 
 ### COMPONENT F3: Critical Path — Top Issues
 ```
-List the TOP 5 issues that MUST be fixed before ANY release:
+List the TOP 5 issues that MUST be fixed before ANY release.
+```
 
-┌────┬──────────┬─────────────────────────────────┬──────────┬──────────┐
-│ #  │ Severity │ Issue                           │ Phase    │ Effort   │
-├────┼──────────┼─────────────────────────────────┼──────────┼──────────┤
-│ 1  │ 🔴       │ [Description]                   │ Phase [N]│ [hours]  │
-│ 2  │ 🔴       │ [Description]                   │ Phase [N]│ [hours]  │
-│ 3  │ 🟠       │ [Description]                   │ Phase [N]│ [hours]  │
-│ 4  │ 🟠       │ [Description]                   │ Phase [N]│ [hours]  │
-│ 5  │ 🟠       │ [Description]                   │ Phase [N]│ [hours]  │
-└────┴──────────┴─────────────────────────────────┴──────────┴──────────┘
+**Template (copy and fill):**
 
+```markdown
+## 🚨 Critical Path — Top 5 Issues
+
+| # | Severity | Issue | Phase | Effort |
+|---|----------|-------|-------|--------|
+| 1 | 🔴 | [Description] | Phase [N] | [hours]h |
+| 2 | 🔴 | [Description] | Phase [N] | [hours]h |
+| 3 | 🟠 | [Description] | Phase [N] | [hours]h |
+| 4 | 🟠 | [Description] | Phase [N] | [hours]h |
+| 5 | 🟠 | [Description] | Phase [N] | [hours]h |
+```
+
+```
 For each top issue, include:
   - WHAT: One-line description
   - WHERE: Exact file and line
@@ -163,25 +222,27 @@ BACKLOG — LOW PRIORITY (Fix when possible):
 
 ### COMPONENT F6: Phase Health Scores Summary
 ```
-Produce the combined health score breakdown:
-
-┌───────────────────────────┬───────┬──────────────────────────────┐
-│ Phase                     │ Score │ Visual                       │
-├───────────────────────────┼───────┼──────────────────────────────┤
-│ 1. Architecture           │ [X/10]│ ██████████░░░░░░░░░░ [X/10] │
-│ 2. UI/UX                  │ [X/10]│ ████████████░░░░░░░░ [X/10] │
-│ 3. Logic & Functional     │ [X/10]│ ██████░░░░░░░░░░░░░░ [X/10] │
-│ 4. Security               │ [X/10]│ ████░░░░░░░░░░░░░░░░ [X/10] │
-│ 5. Performance            │ [X/10]│ ████████████████░░░░ [X/10] │
-│ 6. Platform Compatibility │ [X/10]│ ██████████████░░░░░░ [X/10] │
-│ 7. API & Network          │ [X/10]│ ████████░░░░░░░░░░░░ [X/10] │
-│ 8. State & Data           │ [X/10]│ ██████████░░░░░░░░░░ [X/10] │
-│ 9. Error & Crash          │ [X/10]│ ██████████████████░░ [X/10] │
-├───────────────────────────┼───────┼──────────────────────────────┤
-│ OVERALL                   │[X/100]│                              │
-└───────────────────────────┴───────┴──────────────────────────────┘
-
+Produce the combined health score breakdown.
 Overall = Sum of all phase scores × (10/9) rounded
+```
+
+**Template (copy and fill):**
+
+```markdown
+## 📊 Phase Health Scores
+
+| Phase | Score | Rating |
+|-------|-------|--------|
+| 1. Architecture | [X]/10 | [Excellent/Good/Fair/Poor] |
+| 2. UI/UX | [X]/10 | [Excellent/Good/Fair/Poor] |
+| 3. Logic & Functional | [X]/10 | [Excellent/Good/Fair/Poor] |
+| 4. Security | [X]/10 | [Excellent/Good/Fair/Poor] |
+| 5. Performance | [X]/10 | [Excellent/Good/Fair/Poor] |
+| 6. Platform Compatibility | [X]/10 | [Excellent/Good/Fair/Poor] |
+| 7. API & Network | [X]/10 | [Excellent/Good/Fair/Poor] |
+| 8. State & Data | [X]/10 | [Excellent/Good/Fair/Poor] |
+| 9. Error & Crash | [X]/10 | [Excellent/Good/Fair/Poor] |
+| **OVERALL** | **[X]/100** | **[Rating]** |
 ```
 
 ---
@@ -259,28 +320,30 @@ APPLE APP STORE:
 
 ## 🏁 FINAL SIGN-OFF
 
-```
-╔══════════════════════════════════════════════════════════════╗
-║                    📝 QA REVIEW SIGN-OFF                     ║
-╠══════════════════════════════════════════════════════════════╣
-║                                                              ║
-║  Review Completion: [COMPLETE / PARTIAL]                     ║
-║  Phases Completed:  [X/9]                                    ║
-║  Total Files Reviewed: [count]                               ║
-║  Total Findings: [count]                                     ║
-║  Total Citations: [count]                                    ║
-║                                                              ║
-║  Overall Health Score: [X/100]                               ║
-║  Release Recommendation: [READY/WITH FIXES/NOT READY]        ║
-║                                                              ║
-║  Estimated Remediation Time: [X hours]                       ║
-║  Highest Risk Area: [Phase Name]                             ║
-║  Strongest Area: [Phase Name]                                ║
-║                                                              ║
-║  Notes:                                                      ║
-║  [Any additional observations or recommendations]            ║
-║                                                              ║
-╚══════════════════════════════════════════════════════════════╝
+**Template (copy and fill):**
+
+```markdown
+## 📝 QA Review Sign-Off
+
+| Field | Value |
+|-------|-------|
+| Review Completion | [COMPLETE / PARTIAL] |
+| Phases Completed | [X]/9 |
+| Total Files Reviewed | [count] |
+| Total Findings | [count] |
+| Total Citations | [count] |
+| Overall Health Score | [X]/100 |
+| Release Recommendation | [READY / WITH FIXES / NOT READY] |
+| Estimated Remediation Time | [X] hours |
+| Highest Risk Area | [Phase Name] |
+| Strongest Area | [Phase Name] |
+
+**Notes:** [Any additional observations or recommendations]
+
+---
+
+> ⚠️ If the user wants fixes applied, direct them to **Phase 11: Structured Remediation**
+> (`11-remediation-execution.md`). Do NOT fix code without the Phase 11 system.
 ```
 
 ---

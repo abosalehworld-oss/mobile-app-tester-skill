@@ -94,6 +94,25 @@ Before starting, you MUST detect the framework and adapt your checks:
 | Ionic | `ionic.config.json`, `capacitor.config.ts` |
 | KMP (Kotlin Multiplatform) | `shared/`, `composeApp/`, `iosApp/` |
 
+### Rule 7: NO AUTO-FIX — ANALYSIS ONLY (Phases 1-10)
+Phases 1 through 10 are **READ-ONLY analysis**. You MUST NOT:
+- Offer to fix code during any analysis phase
+- Write corrected code files to disk
+- Modify any source file in the project being reviewed
+- Suggest "let me fix that for you" during analysis
+
+If the user asks you to fix issues:
+1. Complete the current analysis phase first
+2. Complete ALL remaining phases through Phase 10 (Final Report)
+3. THEN direct the user to **Phase 11: Structured Remediation** (`11-remediation-execution.md`)
+4. Phase 11 has its own sprint-based gates and verification system
+
+```
+🚫 Fixing during analysis = SKIPPING checks = INVALID REVIEW
+🚫 Fixing without Phase 11 structure = UNVERIFIED changes = DANGEROUS
+✅ Finish report FIRST → THEN fix with Phase 11 system
+```
+
 ---
 
 ## 📋 PHASE OVERVIEW
@@ -110,6 +129,7 @@ Before starting, you MUST detect the framework and adapt your checks:
 | 8 | State & Data Management | `08-state-data-management.md` | State architecture, subscriptions, data flow |
 | 9 | Error & Crash Prevention | `09-error-crash-prevention.md` | Exception handling, null safety, edge cases |
 | 10 | Final Delivery | `10-final-delivery-checklist.md` | Complete checklist, priority matrix, sign-off |
+| 11 | Structured Remediation *(optional)* | `11-remediation-execution.md` | Sprint-based fixes with verification gates |
 
 ---
 
@@ -169,8 +189,9 @@ When executing each phase, you MUST read the corresponding file for detailed ins
 - Phase 8: Read `08-state-data-management.md` in this skill folder
 - Phase 9: Read `09-error-crash-prevention.md` in this skill folder
 - Phase 10: Read `10-final-delivery-checklist.md` in this skill folder
+- Phase 11 *(optional)*: Read `11-remediation-execution.md` in this skill folder
 
-Additionally, refer to `11-common-bugs-database.md` for a database of 200+ common
+Additionally, refer to `ref-common-bugs-database.md` for a database of 200+ common
 mobile app bugs categorized by type, framework, and severity.
 
 ---

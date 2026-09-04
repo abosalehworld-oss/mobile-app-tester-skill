@@ -1,0 +1,247 @@
+# Phase 11: Structured Remediation 🔧
+
+> **Objective:** Execute code fixes for all findings from Phases 1-9 in a structured,
+> verifiable, and auditable manner. Every fix must be PROVEN with before/after code,
+> and verified to not break existing functionality. This phase is OPTIONAL and only
+> triggered when the user explicitly requests fixes after reviewing the Phase 10 report.
+
+---
+
+## ⚠️ CRITICAL RULES FOR REMEDIATION
+
+> **You are now switching from QA AUDITOR to SURGICAL FIX ENGINEER.**
+> Your job is to fix ONLY what was identified in the report — nothing more, nothing less.
+> Do NOT refactor code that wasn't flagged. Do NOT add features. Do NOT "improve" things
+> beyond what the findings require.
+
+### Rule R1: NO SILENT FIXES
+Every fix MUST include:
+- **Finding ID** being addressed (e.g., F011)
+- **Before code** (exact lines being changed)
+- **After code** (the replacement)
+- **Why this fixes it** (1-2 sentence explanation)
+- **What could break** (risk assessment)
+
+❌ FORBIDDEN: Changing code without referencing a Finding ID
+❌ FORBIDDEN: Fixing something that wasn't in the report
+✅ REQUIRED: One Finding = One Fix = One Verification
+
+### Rule R2: SPRINT-BASED EXECUTION
+Fixes MUST follow the priority order from the Phase 10 Remediation Plan:
+1. **Sprint 1 (BLOCKER)** — All 🔴 Critical findings → Fix ALL before moving on
+2. **Sprint 2 (HIGH)** — All 🟠 High findings → Fix ALL before moving on
+3. **Sprint 3 (MEDIUM)** — All 🟡 Medium findings
+4. **Backlog (LOW)** — All 🔵 Low findings
+
+```
+🚫 YOU CANNOT fix a Sprint 2 item before ALL Sprint 1 items are done.
+🚫 YOU CANNOT skip a finding within a sprint.
+🚫 YOU CANNOT mark a fix as "done" without showing the diff.
+```
+
+### Rule R3: ONE FIX AT A TIME
+Do NOT batch multiple fixes into one giant code change. Each fix must be:
+1. **Isolated** — Changes only what's needed for that specific finding
+2. **Reviewable** — User can see exactly what changed and why
+3. **Reversible** — If it breaks something, it can be undone independently
+
+### Rule R4: STOP AFTER EACH SPRINT
+After completing ALL fixes in a sprint, you MUST:
+1. Output the sprint completion report
+2. List all files modified
+3. **STOP and wait for user confirmation** before proceeding to next sprint
+
+---
+
+## 📋 FIX EXECUTION FORMAT
+
+For EACH finding being fixed, use this EXACT format:
+
+```
+═══════════════════════════════════════════════════════════
+  🔧 FIX [FINDING-ID]: [Short Title]
+  📍 File: [path/to/file.ext]
+  🎯 Sprint: [1/2/3/Backlog]
+═══════════════════════════════════════════════════════════
+```
+
+### BEFORE (Problematic Code):
+Show the exact code being replaced with line numbers.
+
+### AFTER (Fixed Code):
+Show the replacement code with line numbers.
+
+### EXPLANATION:
+- **What changed:** [1-2 sentences]
+- **Why this works:** [technical justification]
+- **Risk assessment:** [what could break, if anything]
+
+### VERIFICATION:
+- [ ] Code compiles/parses without errors
+- [ ] Fix addresses the exact issue described in the finding
+- [ ] No unrelated code was modified
+- [ ] Existing functionality is preserved
+
+---
+
+## 📋 SPRINT EXECUTION CHECKLIST
+
+### Sprint 1 — BLOCKER (🔴 Critical Fixes)
+```
+Before starting Sprint 1:
+  □ All Critical findings from Phase 10 report are listed
+  □ Fix order is determined (dependencies first)
+  □ User has approved starting remediation
+
+For EACH fix in Sprint 1:
+  □ Finding ID referenced
+  □ Before/After code shown
+  □ Explanation provided
+  □ Verification checklist completed
+  □ File saved successfully
+
+After ALL Sprint 1 fixes:
+  □ Sprint 1 completion report produced
+  □ All modified files listed
+  □ STOP — Wait for user confirmation
+```
+
+### Sprint 2 — HIGH PRIORITY (🟠 High Fixes)
+```
+Before starting Sprint 2:
+  □ ALL Sprint 1 fixes confirmed by user
+  □ No regressions reported from Sprint 1
+
+For EACH fix in Sprint 2:
+  □ Finding ID referenced
+  □ Before/After code shown
+  □ Explanation provided
+  □ Verification checklist completed
+  □ File saved successfully
+
+After ALL Sprint 2 fixes:
+  □ Sprint 2 completion report produced
+  □ All modified files listed
+  □ STOP — Wait for user confirmation
+```
+
+### Sprint 3 — MEDIUM PRIORITY (🟡 Medium Fixes)
+```
+Before starting Sprint 3:
+  □ ALL Sprint 1 + Sprint 2 fixes confirmed by user
+  □ No regressions reported
+
+For EACH fix in Sprint 3:
+  □ Finding ID referenced
+  □ Before/After code shown
+  □ Explanation provided
+  □ Verification checklist completed
+  □ File saved successfully
+
+After ALL Sprint 3 fixes:
+  □ Sprint 3 completion report produced
+  □ All modified files listed
+  □ STOP — Wait for user confirmation
+```
+
+### Backlog — LOW PRIORITY (🔵 Low Fixes)
+```
+Same structure as above sprints.
+User may choose to skip backlog items entirely.
+```
+
+---
+
+## 🚦 SPRINT COMPLETION REPORT FORMAT
+
+After completing each sprint, produce this report:
+
+```markdown
+## ✅ Sprint [N] Complete: [BLOCKER/HIGH/MEDIUM/LOW]
+
+| # | Finding | File Modified | Status |
+|---|---------|--------------|--------|
+| 1 | [F0XX] [title] | `path/to/file.ext` | ✅ Fixed |
+| 2 | [F0XX] [title] | `path/to/file.ext` | ✅ Fixed |
+| 3 | [F0XX] [title] | `path/to/file.ext` | ⏭️ Deferred (reason) |
+
+**Files Modified:** [count]
+**Lines Changed:** ~[count]
+**Findings Resolved:** [count]/[total in sprint]
+
+Proceed to Sprint [N+1]? (yes/no/done)
+```
+
+---
+
+## 🚦 PHASE 11 GATE — FINAL VERIFICATION
+
+After ALL sprints are completed (or user decides to stop):
+
+```
+PHASE 11 GATE CHECKLIST:
+  □ All Sprint 1 (Critical) fixes applied and verified
+  □ All Sprint 2 (High) fixes applied and verified
+  □ Sprint 3 (Medium) fixes applied or explicitly deferred
+  □ Backlog items addressed or explicitly deferred
+  □ Every fix has a before/after diff shown
+  □ Every fix references its Finding ID
+  □ No unrelated code was modified
+  □ Modified files list is complete
+  □ User confirmed each sprint before proceeding
+```
+
+### Final Remediation Report:
+
+```markdown
+## 🏁 Remediation Summary
+
+| Metric | Value |
+|--------|-------|
+| Total Findings in Report | [count] |
+| Findings Fixed | [count] |
+| Findings Deferred | [count] |
+| Files Modified | [count] |
+| Estimated Lines Changed | ~[count] |
+
+### Fix Status by Severity
+
+| Severity | Total | Fixed | Deferred |
+|----------|-------|-------|----------|
+| 🔴 Critical | [n] | [n] | [n] |
+| 🟠 High | [n] | [n] | [n] |
+| 🟡 Medium | [n] | [n] | [n] |
+| 🔵 Low | [n] | [n] | [n] |
+
+### Deferred Items (if any)
+
+| Finding | Reason for Deferral |
+|---------|-------------------|
+| [F0XX] | [reason] |
+
+### Post-Fix Recommendations
+- [ ] Run full test suite
+- [ ] Manual smoke test on device/emulator
+- [ ] Re-run Phase 4 (Security) if security fixes were applied
+- [ ] Re-run Phase 5 (Performance) if performance fixes were applied
+```
+
+---
+
+## ⛔ IMPORTANT BOUNDARIES
+
+1. **Scope Control:** Fix ONLY findings from the QA report. If you discover NEW issues
+   during remediation, LOG them separately — do NOT fix them in this phase.
+
+2. **No Refactoring:** Do not restructure, rename, or reorganize code beyond what the
+   finding specifically requires. Minimal, surgical changes only.
+
+3. **No New Dependencies:** Do not add new packages/libraries unless the finding
+   specifically requires it AND you explain why it's necessary.
+
+4. **Preserve Comments:** Do not remove or modify existing comments unless they are
+   directly related to the code being fixed.
+
+5. **Preserve Tests:** If tests exist, ensure they still pass after each fix.
+   If no tests exist, note this in the verification but do NOT write tests in this phase
+   (that's a separate task).
