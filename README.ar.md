@@ -208,3 +208,11 @@ MIT — مجاني للاستخدام والمشاركة والتعديل.
 - **يريدون توثيقاً كاملاً** لكل مشكلة تم اكتشافها
 
 > بُنيت بـ ❤️ لمطوري الموبايل الذين لا يستطيعون دائماً تشغيل المحاكي.
+
+---
+
+## 👤 المطوّر
+
+**محمد صالح (Mohamed Saleh)** 🇪🇬  
+مصر — مطور موبايل وبرمجيات  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Mohamed%20Saleh-blue?logo=linkedin)](https://www.linkedin.com/in/mr-mohamed-saleh/)

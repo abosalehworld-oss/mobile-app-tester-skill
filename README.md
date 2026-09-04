@@ -206,3 +206,11 @@ npx skills add https://github.com/YOUR_USERNAME/mobile-app-tester-skill -g -y
 ```
 
 > Built with ❤️ for mobile developers who can't always run an emulator.
+
+---
+
+## 👤 Author
+
+**Mohamed Saleh** 🇪🇬  
+Egypt — Mobile & Software Developer  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Mohamed%20Saleh-blue?logo=linkedin)](https://www.linkedin.com/in/mr-mohamed-saleh/)
