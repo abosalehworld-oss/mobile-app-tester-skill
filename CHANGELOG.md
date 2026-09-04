@@ -2,6 +2,26 @@
 
 All notable changes to the Mobile App Tester Skill are documented here.
 
+## [1.2.0] - 2026-09-05
+
+### Added
+- **Phase 12: Store & Commercial Readiness** (`12-store-commercial-readiness.md`)
+  - Full Google Play + Apple App Store submission readiness verification
+  - Payment gateway security audit (Stripe, PayPal, Google Play Billing, StoreKit)
+  - Revenue/monetization system verification (ads, subscriptions, in-app purchases)
+  - Revenue protection checks (server-side validation, tamper-proofing)
+  - Mandatory web search for current store policies (not relying on training data)
+  - Store readiness matrix with YES/NO commercial release verdict
+- **Rule 8: Language Adaptation** in `SKILL.md`
+  - AI must respond in the same language the user writes
+- **Rule 9: Web Search for Current Policies** in `SKILL.md`
+  - AI must search the web for current store policies in Phase 12
+  - Must cite source URLs for every policy requirement referenced
+
+### Changed
+- Phase overview table updated to include Phase 12
+- Phase file references updated to include Phase 12
+
 ## [1.1.0] - 2026-09-05
 
 ### Added

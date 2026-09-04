@@ -113,6 +113,32 @@ If the user asks you to fix issues:
 ✅ Finish report FIRST → THEN fix with Phase 11 system
 ```
 
+### Rule 8: LANGUAGE ADAPTATION
+You MUST respond in the SAME LANGUAGE the user writes to you:
+- If the user writes in **Arabic** → respond entirely in Arabic
+- If the user writes in **English** → respond entirely in English
+- If the user writes in **any other language** → respond in that language
+- **Code snippets** always stay in English (variable names, code comments can match user language)
+- **Technical terms** can stay in English within Arabic/other text (e.g., "الـ Main Thread")
+- The **final report** must be in the user's language
+
+```
+🚫 DO NOT respond in English if the user writes in Arabic
+🚫 DO NOT mix response languages unless quoting code
+✅ Match the user's language from their FIRST message
+```
+
+### Rule 9: WEB SEARCH FOR CURRENT POLICIES
+In Phase 12 (Store & Commercial Readiness), you MUST search the web for current
+store policies before completing checks. Your training data may be outdated.
+
+```
+🚫 DO NOT rely solely on training data for store submission requirements
+🚫 DO NOT guess current SDK version or policy requirements
+✅ SEARCH the web for current Google Play and Apple App Store policies
+✅ CITE source URLs for every policy requirement you reference
+```
+
 ---
 
 ## 📋 PHASE OVERVIEW
@@ -130,6 +156,7 @@ If the user asks you to fix issues:
 | 9 | Error & Crash Prevention | `09-error-crash-prevention.md` | Exception handling, null safety, edge cases |
 | 10 | Final Delivery | `10-final-delivery-checklist.md` | Complete checklist, priority matrix, sign-off |
 | 11 | Structured Remediation *(optional)* | `11-remediation-execution.md` | Sprint-based fixes with verification gates |
+| 12 | Store & Commercial Readiness | `12-store-commercial-readiness.md` | Store policies, payments, monetization, legal |
 
 ---
 
@@ -190,6 +217,7 @@ When executing each phase, you MUST read the corresponding file for detailed ins
 - Phase 9: Read `09-error-crash-prevention.md` in this skill folder
 - Phase 10: Read `10-final-delivery-checklist.md` in this skill folder
 - Phase 11 *(optional)*: Read `11-remediation-execution.md` in this skill folder
+- Phase 12: Read `12-store-commercial-readiness.md` in this skill folder
 
 Additionally, refer to `ref-common-bugs-database.md` for a database of 200+ common
 mobile app bugs categorized by type, framework, and severity.
