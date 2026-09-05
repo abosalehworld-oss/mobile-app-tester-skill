@@ -1,9 +1,9 @@
 # Phase 11: Structured Remediation 🔧
 
-> **Objective:** Execute code fixes for all findings from Phases 1-9 in a structured,
-> verifiable, and auditable manner. Every fix must be PROVEN with before/after code,
-> and verified to not break existing functionality. This phase is OPTIONAL and only
-> triggered when the user explicitly requests fixes after reviewing the Phase 10 report.
+> **Objective:** Execute code fixes for all findings from Phases 1-9 AND Phase 12 in a
+> structured, verifiable, and auditable manner. Every fix must be PROVEN with before/after
+> code, and verified to not break existing functionality. This phase is triggered when
+> the user requests fixes after reviewing the Phase 10 report OR the Phase 12 report.
 
 ---
 
@@ -287,11 +287,16 @@ PHASE 11 GATE CHECKLIST:
 |---------|-------------------|
 | [F0XX] | [reason] |
 
-### Post-Fix Recommendations
-- [ ] Run full test suite
-- [ ] Manual smoke test on device/emulator
-- [ ] Re-run Phase 4 (Security) if security fixes were applied
-- [ ] Re-run Phase 5 (Performance) if performance fixes were applied
+### Post-Fix Mandatory Re-Analysis
+After ALL fixes are applied, you MUST re-run the relevant analysis:
+- [ ] Re-run Phases 1-9 on the fixed code (MANDATORY — not optional)
+- [ ] Produce a new Phase 10 report comparing before/after
+- [ ] Re-run Phase 12 (Store Readiness) if any store/payment fixes were applied
+- [ ] Confirm zero Critical and zero High findings remain
+- [ ] If new issues found → go back to Phase 11 and fix them
+
+> ⚠️ **THE CYCLE DOES NOT END UNTIL THE RE-ANALYSIS IS CLEAN.**
+> The full cycle is: Analyze (1-10) → Fix (11) → Re-Analyze (1-10) → Store Check (12) → Fix (11) → Re-Check (12) → ✅ Done
 ```
 
 ---

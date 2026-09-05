@@ -5,10 +5,12 @@ description: >
   professional mobile app QA tester. Covers architecture review, UI/UX testing, logic
   & functional testing, security auditing (OWASP Mobile Top 10), performance optimization,
   platform compatibility, API/network resilience, state management, error/crash prevention,
-  and final delivery verification. Supports all mobile frameworks: Flutter, React Native,
-  Kotlin, Swift, Jetpack Compose, SwiftUI, Xamarin, MAUI, and Ionic.
-  Designed with mandatory gates, checklists, stop-points, and anti-skip enforcement
-  to ensure thorough code review even without a physical emulator or device.
+  final delivery verification, structured remediation with verification gates, and
+  store & commercial readiness (payments, monetization, Google Play + App Store policies).
+  Supports all mobile frameworks: Flutter, React Native, Kotlin, Swift, Jetpack Compose,
+  SwiftUI, Xamarin, MAUI, and Ionic. Designed with mandatory gates, checklists, stop-points,
+  anti-skip enforcement, and mandatory re-analysis after fixes to ensure production-ready
+  code delivery even without a physical emulator or device.
 ---
 
 # 📱 Mobile Application Comprehensive Tester
@@ -34,7 +36,7 @@ Every single finding MUST include:
 ✅ REQUIRED: "In `lib/services/auth_service.dart:45-52`, the token is stored using `SharedPreferences.setString('token', rawToken)` without encryption. This exposes the token to any app with root access. Fix: Use `flutter_secure_storage` instead."
 
 ### Rule 2: MANDATORY PHASE GATES
-This review has **10 phases**. Each phase has a **GATE** — a mandatory checklist that must be
+This review has **12 phases**. Each phase has a **GATE** — a mandatory checklist that must be
 completed with evidence BEFORE proceeding to the next phase.
 
 ```
@@ -171,34 +173,62 @@ When the user asks you to review their mobile app, follow this EXACT workflow:
 3. Identify the project's architecture pattern (MVC, MVVM, Clean, BLoC, etc.)
 4. Count: total files, total lines of code, dependencies count
 5. Output a PROJECT PROFILE:
-
-╔══════════════════════════════════════════╗
-║          📱 PROJECT PROFILE              ║
-╠══════════════════════════════════════════╣
-║ Framework:    [detected]                 ║
-║ Language:     [detected]                 ║
-║ Architecture: [detected]                ║
-║ Total Files:  [count]                    ║
-║ Total LOC:    [count]                    ║
-║ Dependencies: [count]                    ║
-║ Min SDK:      [detected]                 ║
-║ Target SDK:   [detected]                 ║
-╚══════════════════════════════════════════╝
 ```
 
-### Step 1-10: Execute Each Phase
+**Template (copy and fill):**
+
+```markdown
+## 📱 Project Profile
+
+| Field | Value |
+|-------|-------|
+| Framework | [detected] |
+| Language | [detected] |
+| Architecture | [detected] |
+| Total Files | [count] |
+| Total LOC | [count] |
+| Dependencies | [count] |
+| Min SDK | [detected] |
+| Target SDK | [detected] |
+```
+
+### Step 1-10: Code Analysis Phases
 - Read the corresponding phase file (01 through 10)
 - Execute ALL checks in that phase
 - Produce the phase report with citations
 - Complete the gate checklist
 - STOP and report before proceeding
 
-### Final Step: Executive Summary
-After all 10 phases, produce:
-1. **Executive Summary** — Total findings by severity
-2. **Critical Path** — Top 5 issues that MUST be fixed before release
-3. **Cross-Reference Matrix** — Proof of comprehensive coverage
-4. **Remediation Priority Plan** — Ordered fix list with effort estimates
+### Step 11: Structured Remediation
+After the user reviews the Phase 10 report and requests fixes:
+- Read `11-remediation-execution.md`
+- Fix findings sprint by sprint (Critical → High → Medium → Low)
+- Show before/after diff for every fix
+- Verify new code passes same security/performance/payment checks (Rule R5)
+- STOP after each sprint for user confirmation
+
+### Step 12: Store & Commercial Readiness
+After fixes are applied:
+- Read `12-store-commercial-readiness.md`
+- Search the web for CURRENT store policies (Rule 9)
+- Check build config, icons, privacy, payments, monetization, environment
+- Produce store readiness matrix with YES/NO verdict
+- If issues found → go back to Phase 11 to fix → then re-check Phase 12
+
+### Complete Workflow Cycle:
+```
+Analyze (1-10) → Report → Fix (11) → Re-Analyze (1-10) → Store Check (12)
+    ↓                                                         ↓
+    ↓                                              Issues? → Fix (11) → Re-Check (12)
+    ↓                                                         ↓
+    ↓                                              Clean? → ✅ READY TO PUBLISH
+    ↓
+The cycle repeats until:
+  ✅ Zero 🔴 Critical findings
+  ✅ Zero 🟠 High findings
+  ✅ Phase 12 verdict = 🟢 READY
+  ✅ User confirms final sign-off
+```
 
 ---
 
