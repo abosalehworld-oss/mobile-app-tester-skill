@@ -64,6 +64,61 @@ After completing ALL fixes in a sprint, you MUST:
 2. List all files modified
 3. **STOP and wait for user confirmation** before proceeding to next sprint
 
+### Rule R5: NEW CODE MUST PASS THE SAME PHASE CHECKS
+Every line of new/replacement code you write MUST be verified against the checklist
+of its relevant original phase BEFORE marking the fix as complete.
+
+```
+The new code is INNOCENT UNTIL PROVEN SAFE — not safe by default.
+
+For each fix, check the new code against:
+
+  If fix relates to SECURITY (Phase 4):
+    ❑ Does new code introduce any new hardcoded secrets?
+    ❑ Does new code expose sensitive data in logs?
+    ❑ Does new code bypass authentication/authorization?
+    ❑ Is new encryption/hashing using secure algorithms?
+    ❑ Is new user input properly validated and sanitized?
+
+  If fix relates to PERFORMANCE (Phase 5):
+    ❑ Does new code run heavy operations on the Main Thread?
+    ❑ Does new code create unnecessary object allocations in loops?
+    ❑ Does new code introduce new memory leaks (listeners, controllers)?
+    ❑ Does new code cause unnecessary full-screen rebuilds?
+
+  If fix relates to PAYMENTS (Phase 12):
+    ❑ Does new code handle the failure path correctly?
+    ❑ Does new code prevent double-execution (idempotency)?
+    ❑ Does new code log or expose card/payment data?
+    ❑ Is amount validated server-side (not just client)?
+    ❑ Are all payment states handled (success, failure, timeout, offline)?
+
+  If fix relates to STATE (Phase 8):
+    ❑ Does new code introduce new global mutable state?
+    ❑ Does new code create race conditions?
+    ❑ Are streams/subscriptions properly disposed?
+
+  If fix relates to ERRORS (Phase 9):
+    ❑ Does new code have empty catch blocks?
+    ❑ Are exceptions handled meaningfully (not swallowed)?
+    ❑ Are null values handled safely?
+```
+
+**FORMAT FOR RULE R5 VERIFICATION:**
+After every fix, include this block:
+
+```markdown
+### ✅ Rule R5 Verification — New Code Quality Check
+- **Phase checked:** [Phase N — Name]
+- **Security:** [PASS / N/A] — [one-line reason]
+- **Performance:** [PASS / N/A] — [one-line reason]
+- **Payment safety:** [PASS / N/A] — [one-line reason]
+- **New vulnerabilities introduced:** [NONE / describe if any]
+- **Verdict:** ✅ Safe to apply / ⚠️ Needs review / 🔴 Rejected
+```
+
+If verdict is ⚠️ or 🔴 → you MUST revise the fix before applying it.
+
 ---
 
 ## 📋 FIX EXECUTION FORMAT
