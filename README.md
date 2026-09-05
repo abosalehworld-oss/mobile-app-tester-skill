@@ -1,7 +1,7 @@
 # Mobile App Comprehensive Tester Skill 📱
 
 **The most thorough AI-powered mobile application testing skill on the market.**  
-Transform any AI agent into a Senior Mobile QA Engineer through 10 structured review phases, mandatory gates, and an anti-laziness enforcement system that guarantees real code citations for every finding.
+Transform any AI agent into a Senior Mobile QA Engineer through 12 structured review and remediation phases, mandatory gates, and an anti-laziness enforcement system that guarantees real code citations for every finding.
 
 [![skills.sh](https://img.shields.io/badge/skills.sh-compatible-brightgreen)](https://skills.sh)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -22,7 +22,9 @@ When installed, your AI agent becomes a **professional mobile app QA engineer** 
 - 🌐 **API & Network Resilience** — Error handling for all HTTP status codes, offline mode, caching
 - 🔄 **State & Data Management** — Race conditions, data consistency, local database integrity
 - 🛡️ **Error & Crash Prevention** — Null safety, global error handlers, edge cases, loading states
-- ✅ **Final Delivery** — Executive summary, cross-reference proof matrix, store submission checklist
+- ✅ **Final Delivery** — Executive summary, cross-reference proof matrix
+- 🔧 **Structured Remediation (Phase 11)** — Safely fixes discovered issues via strict before/after diffs and automatic security re-checks for all new code.
+- 🏪 **Store & Commercial Readiness (Phase 12)** — Verifies App Store/Google Play policies, payment gateway security (Stripe/PayPal), and subscription protection before final release.
 
 ---
 
