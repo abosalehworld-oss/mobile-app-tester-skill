@@ -14,6 +14,19 @@
 > Do NOT refactor code that wasn't flagged. Do NOT add features. Do NOT "improve" things
 > beyond what the findings require.
 
+> ⚠️ **SPECIAL RULE FOR PAYMENT, SECURITY & MONETIZATION CODE:**
+> Any fix touching payment flows, encryption, authentication, revenue logic,
+> or store billing MUST include an extra verification step:
+> - State explicitly: **"This change affects financial/security code"**
+> - Explain the exact attack vector or failure mode being fixed
+> - Confirm that NO new vulnerability is introduced by the fix itself
+> - The user must explicitly confirm this fix before you proceed to the next one
+> ```
+> 🔴 Payment fixes = HIGHEST RISK. One wrong line = double charges or revenue bypass.
+> 🔴 STOP after EACH payment/security fix — do NOT batch them together.
+> ✅ One payment fix → show diff → wait for explicit user confirmation → next fix
+> ```
+
 ### Rule R1: NO SILENT FIXES
 Every fix MUST include:
 - **Finding ID** being addressed (e.g., F011)

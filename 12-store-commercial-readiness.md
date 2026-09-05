@@ -7,6 +7,35 @@
 
 ---
 
+## 🚫 PHASE 12 IS READ-ONLY ANALYSIS — NO WRITING CODE
+
+> This phase is a **VERIFICATION phase**, not a fix phase.
+> Your job is to CHECK and REPORT — not to write, generate, or modify code.
+
+```
+🚫 DO NOT write code during this phase — even if something is "missing"
+🚫 DO NOT generate privacy manifests, build configs, or payment code inline
+🚫 DO NOT say "here's the fix" and write code — report the finding instead
+🚫 DO NOT modify any source file during Phase 12
+
+✅ IDENTIFY what is missing → add it to findings with severity rating
+✅ EXPLAIN exactly what needs to be added/changed and WHY
+✅ REFERENCE the exact file and location where the fix belongs
+✅ After Phase 12 report → user decides which findings to fix
+✅ ALL FIXES go through Phase 11 (Structured Remediation):
+   - Sprint-based execution (Critical first)
+   - Mandatory before/after diff for every change
+   - Verification gate after each fix
+   - No unreviewed code reaches production
+```
+
+> **WHY THIS IS CRITICAL FOR PAYMENT & SECURITY CODE:**
+> Payment code written without Phase 11 verification = unaudited code in production.
+> Unaudited payment code can cause: double charges, webhook bypass, PCI violations.
+> Phase 11 forces proof-of-work on every single line changed — this is your protection.
+
+---
+
 ## ⚠️ CRITICAL: WEB SEARCH IS MANDATORY IN THIS PHASE
 
 > Store policies change EVERY YEAR. Google and Apple update their requirements regularly.
