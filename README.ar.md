@@ -31,13 +31,13 @@
 ## 🚀 التثبيت في 30 ثانية
 
 ```bash
-npx skills add https://github.com/YOUR_USERNAME/mobile-app-tester-skill
+npx skills add https://github.com/abosalehworld-oss/mobile-app-tester-skill
 ```
 
 أو تثبيت عالمي:
 
 ```bash
-npx skills add https://github.com/YOUR_USERNAME/mobile-app-tester-skill -g -y
+npx skills add https://github.com/abosalehworld-oss/mobile-app-tester-skill -g -y
 ```
 
 ---
@@ -68,8 +68,8 @@ npx skills add https://github.com/YOUR_USERNAME/mobile-app-tester-skill -g -y
 `❌ ممنوع: "راجعت المصادقة ولم أجد مشاكل"`  
 `✅ مطلوب: "في lib/services/auth_service.dart:45-52، التوكن مخزن بدون تشفير..."`
 
-### ٢. بوابات المراحل الإلزامية (9 بوابات)
-كل مرحلة من المراحل العشر تحتوي على Checklist منظمة يجب استكمالها بالأدلة قبل الانتقال للمرحلة التالية.
+### ٢. بوابات المراحل الإلزامية (12 بوابة)
+كل مرحلة من المراحل الـ 12 تحتوي على Checklist منظمة يجب استكمالها بالأدلة قبل الانتقال للمرحلة التالية.
 
 ### ٣. نقاط التوقف الإجبارية
 بعد كل مرحلة، يجب على الـ AI إخراج تقرير منظم والانتظار للإقرار قبل المتابعة.
@@ -94,7 +94,9 @@ mobile-app-tester-skill/
 ├── 08-state-data-management.md     ← المرحلة 8: معمارية الحالة وتدفق البيانات
 ├── 09-error-crash-prevention.md    ← المرحلة 9: Null Safety ومنع الأعطال
 ├── 10-final-delivery-checklist.md  ← المرحلة 10: الملخص التنفيذي والتوقيع النهائي
-└── 11-common-bugs-database.md      ← 200+ نمط أخطاء حقيقي للمرجع
+├── 11-remediation-execution.md     ← المرحلة 11: الإصلاح المُهيكل وعرض الـ Diff
+├── 12-store-commercial-readiness.md← المرحلة 12: التحقق من جاهزية المتجر والمدفوعات
+└── ref-common-bugs-database.md     ← 200+ نمط أخطاء حقيقي للمرجع
 ```
 
 ---

@@ -31,13 +31,13 @@ When installed, your AI agent becomes a **professional mobile app QA engineer** 
 ## 🚀 Install in 30 Seconds
 
 ```bash
-npx skills add https://github.com/YOUR_USERNAME/mobile-app-tester-skill
+npx skills add https://github.com/abosalehworld-oss/mobile-app-tester-skill
 ```
 
 Or globally:
 
 ```bash
-npx skills add https://github.com/YOUR_USERNAME/mobile-app-tester-skill -g -y
+npx skills add https://github.com/abosalehworld-oss/mobile-app-tester-skill -g -y
 ```
 
 ---
@@ -68,8 +68,8 @@ Every finding MUST include exact file path, line numbers, and copied code snippe
 `❌ FORBIDDEN: "I reviewed auth and found no issues"`  
 `✅ REQUIRED: "In lib/services/auth_service.dart:45-52, token stored unencrypted..."`
 
-### 2. Mandatory Phase Gates (9 Gates)
-Each of the 10 phases has a structured checklist that must be completed with evidence before the AI can proceed to the next phase.
+### 2. Mandatory Phase Gates (12 Gates)
+Each of the 12 phases has a structured checklist that must be completed with evidence before the AI can proceed to the next phase.
 
 ### 3. Mandatory STOP Points
 After each phase, the AI MUST output a structured report and wait for acknowledgment before continuing.
@@ -94,7 +94,9 @@ mobile-app-tester-skill/
 ├── 08-state-data-management.md     ← Phase 8: State architecture & data flow
 ├── 09-error-crash-prevention.md    ← Phase 9: Null safety & crash prevention
 ├── 10-final-delivery-checklist.md  ← Phase 10: Executive summary & sign-off
-└── 11-common-bugs-database.md      ← 200+ real-world bug patterns reference
+├── 11-remediation-execution.md     ← Phase 11: Structured bug fixes & diffs
+├── 12-store-commercial-readiness.md← Phase 12: Store & Payment verification
+└── ref-common-bugs-database.md     ← 200+ real-world bug patterns reference
 ```
 
 ---
@@ -204,7 +206,7 @@ MIT — free to use, share, and modify.
 ## 🌟 Activate on skills.sh
 
 ```bash
-npx skills add https://github.com/YOUR_USERNAME/mobile-app-tester-skill -g -y
+npx skills add https://github.com/abosalehworld-oss/mobile-app-tester-skill -g -y
 ```
 
 > Built with ❤️ for mobile developers who can't always run an emulator.
