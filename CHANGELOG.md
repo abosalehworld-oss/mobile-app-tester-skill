@@ -2,6 +2,31 @@
 
 All notable changes to the Mobile App Tester Skill are documented here.
 
+## [2.0.0] - 2026-09-06
+
+### Added
+- **Phase 13: Pre-Delivery Sentry Validation** (`13-pre-delivery-sentry-validation.md`)
+  - Step-by-step Sentry setup guide for all mobile frameworks
+  - Real-device testing scenarios (normal flow, edge cases, attacks)
+  - Final deployment verdict with Sentry data
+- **Rule 10: MANDATORY FRESH-EYES RE-ANALYSIS** in `SKILL.md`
+  - Second independent pass to catch missed vulnerabilities
+  - 4-layer reminder system (SKILL.md rule + Phase 9 reminder + Phase 10 top mega-reminder + Phase 10 bottom execution instructions)
+  - Proven to catch Critical bugs missed on first pass
+- **Rule 11: MANDATORY WEB SEARCH** for current-year vulnerabilities in `SKILL.md`
+  - AI must search web for current OWASP Mobile vulnerabilities before Phase 4
+  - Must include source URLs in report
+- **Hacker Mindset R6** in `11-remediation-execution.md`
+  - Post-fix verification from attacker's perspective
+
+### Changed
+- Citation minimums raised from 65 to **91** across all phases
+- Phase gates raised from 12 to **13**
+- `04-security-audit.md` — Added mandatory web search gate at top
+- `09-error-crash-prevention.md` — Added Fresh-Eyes pre-flight reminder
+- `10-final-delivery-checklist.md` — Added 🔴🔴🔴 mega-reminder + full Fresh-Eyes instructions
+- Cross-Reference Matrix updated to require 91 minimum citations
+
 ## [1.2.0] - 2026-09-05
 
 ### Added
