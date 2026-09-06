@@ -2,15 +2,20 @@
 name: mobile-app-tester-comprehensive
 description: >
   Comprehensive mobile application testing skill that transforms any AI agent into a
-  professional mobile app QA tester. Covers architecture review, UI/UX testing, logic
-  & functional testing, security auditing (OWASP Mobile Top 10), performance optimization,
-  platform compatibility, API/network resilience, state management, error/crash prevention,
-  final delivery verification, structured remediation with verification gates, and
-  store & commercial readiness (payments, monetization, Google Play + App Store policies).
+  professional mobile app QA tester. Covers 13 phases: architecture review, UI/UX testing,
+  logic & functional testing, security auditing (OWASP Mobile Top 10 with MANDATORY
+  current-year web search), performance optimization, platform compatibility, API/network
+  resilience, state management, error/crash prevention, final delivery verification with
+  MANDATORY fresh-eyes re-analysis (second independent pass), structured remediation with
+  verification gates and hacker-mindset post-fix verification, store & commercial readiness
+  (payments, monetization, Google Play + App Store policies), and PRE-DELIVERY SENTRY
+  VALIDATION (real-device error tracking with step-by-step user guidance).
   Supports all mobile frameworks: Flutter, React Native, Kotlin, Swift, Jetpack Compose,
   SwiftUI, Xamarin, MAUI, and Ionic. Designed with mandatory gates, checklists, stop-points,
-  anti-skip enforcement, and mandatory re-analysis after fixes to ensure production-ready
-  code delivery even without a physical emulator or device.
+  anti-skip enforcement, raised citation minimums, mandatory web search for current-year
+  vulnerabilities, fresh-eyes re-analysis to catch missed issues, and Sentry-based real-device
+  validation to ensure production-ready code delivery. Built to prevent AI laziness,
+  hallucinations, false claims, and incomplete analysis.
 ---
 
 # 📱 Mobile Application Comprehensive Tester
@@ -36,7 +41,7 @@ Every single finding MUST include:
 ✅ REQUIRED: "In `lib/services/auth_service.dart:45-52`, the token is stored using `SharedPreferences.setString('token', rawToken)` without encryption. This exposes the token to any app with root access. Fix: Use `flutter_secure_storage` instead."
 
 ### Rule 2: MANDATORY PHASE GATES
-This review has **12 phases**. Each phase has a **GATE** — a mandatory checklist that must be
+This review has **13 phases**. Each phase has a **GATE** — a mandatory checklist that must be
 completed with evidence BEFORE proceeding to the next phase.
 
 ```
@@ -141,6 +146,68 @@ store policies before completing checks. Your training data may be outdated.
 ✅ CITE source URLs for every policy requirement you reference
 ```
 
+### Rule 10: MANDATORY FRESH-EYES RE-ANALYSIS
+After completing ALL phases (1 through 10), you MUST perform a **second independent pass**
+focused EXCLUSIVELY on finding what you MISSED in the first pass. This is NON-NEGOTIABLE.
+
+```
+🚫 DO NOT skip this step — AI agents consistently miss vulnerabilities on first pass
+🚫 DO NOT copy findings from the first pass — this is a FRESH analysis
+🚫 DO NOT claim "nothing new found" without proving you re-examined every critical file
+✅ RE-READ every file that handles: authentication, payments, encryption, user data
+✅ RE-CHECK for: race conditions, edge cases in payment flows, data leakage paths
+✅ FOCUS on attack vectors a HACKER would exploit (think Red Team, not Blue Team)
+✅ PRODUCE a separate "🔍 FRESH-EYES FINDINGS" section in your Phase 10 report
+```
+
+**FRESH-EYES CHECKLIST (must complete ALL):**
+1. Re-examine ALL authentication/authorization code — look for bypass scenarios
+2. Re-examine ALL payment/financial code — look for double-charge, amount tampering
+3. Re-examine ALL data storage code — look for unencrypted sensitive data
+4. Re-examine ALL API calls — look for missing error handling, data exposure
+5. Re-examine ALL input handling — look for injection, overflow, malformed data
+6. Search for NEW patterns not in the original OWASP checklist (CVEs from current year)
+7. Check for logical flaws that static analysis misses (business logic bypass)
+8. Verify ALL "no issues found" claims from Phase 1-9 by re-reading the actual code
+
+**If the Fresh-Eyes pass finds NEW issues:**
+- Add them to the Phase 10 report with prefix `[FRESH]`
+- Recalculate the overall health score
+- Update the release recommendation accordingly
+- These findings are treated with EQUAL severity to first-pass findings
+
+```
+⚠️ WHY THIS EXISTS: In real-world testing, a fresh AI agent in a new chat with full
+   context capacity found CRITICAL and HIGH vulnerabilities that were completely missed
+   by the first-pass analysis. This rule ensures the AI performs its own "fresh chat"
+   equivalent within the same session. ONE PASS IS NEVER ENOUGH.
+```
+
+### Rule 11: MANDATORY WEB SEARCH FOR CURRENT VULNERABILITIES
+In Phase 4 (Security Audit), you MUST use your `search_web` tool to search for
+current-year vulnerabilities BEFORE examining any code. Your training data is STALE.
+
+```
+🚫 DO NOT rely on training data for vulnerability patterns
+🚫 DO NOT skip the web search even if you "know" OWASP
+🚫 DO NOT proceed with Phase 4 without completing the searches below
+
+✅ MANDATORY SEARCHES (insert the ACTUAL current year):
+   Search 1: "OWASP Mobile Top 10 <current year>"
+   Search 2: "<detected framework> security vulnerabilities <current year>"
+   Search 3: "<detected framework> CVE <current year>"
+   Search 4: "mobile app security best practices <current year>"
+
+✅ VERIFICATION: You MUST include in your Phase 4 report:
+   - The exact search queries you used
+   - Top 3 NEW attack vectors discovered for the current year
+   - How each new attack vector was checked against the codebase
+   - Source URLs for every referenced vulnerability
+
+❌ FAILURE: If your Phase 4 report does not contain web search results
+   with source URLs, the ENTIRE Phase 4 is marked as FAILED and must be re-done.
+```
+
 ---
 
 ## 📋 PHASE OVERVIEW
@@ -150,15 +217,16 @@ store policies before completing checks. Your training data may be outdated.
 | 1 | Architecture Review | `01-architecture-review.md` | Project structure, dependencies, design patterns |
 | 2 | UI/UX Testing | `02-ui-ux-testing.md` | Screens, widgets, responsiveness, accessibility |
 | 3 | Logic & Functional Testing | `03-logic-functional-testing.md` | Business logic, state transitions, validation |
-| 4 | Security Audit | `04-security-audit.md` | OWASP Top 10, data protection, auth |
+| 4 | Security Audit | `04-security-audit.md` | OWASP Top 10, data protection, auth (+ web search) |
 | 5 | Performance Analysis | `05-performance-optimization.md` | Memory, CPU, battery, rendering |
 | 6 | Platform Compatibility | `06-platform-compatibility.md` | Android/iOS specifics, permissions, lifecycle |
 | 7 | API & Network Resilience | `07-api-network-resilience.md` | HTTP calls, offline mode, caching, error handling |
 | 8 | State & Data Management | `08-state-data-management.md` | State architecture, subscriptions, data flow |
 | 9 | Error & Crash Prevention | `09-error-crash-prevention.md` | Exception handling, null safety, edge cases |
-| 10 | Final Delivery | `10-final-delivery-checklist.md` | Complete checklist, priority matrix, sign-off |
+| 10 | Final Delivery + Fresh-Eyes | `10-final-delivery-checklist.md` | Complete checklist, priority matrix, **FRESH-EYES re-analysis**, sign-off |
 | 11 | Structured Remediation *(optional)* | `11-remediation-execution.md` | Sprint-based fixes with verification gates |
 | 12 | Store & Commercial Readiness | `12-store-commercial-readiness.md` | Store policies, payments, monetization, legal |
+| 13 | Pre-Delivery Sentry Validation | `13-pre-delivery-sentry-validation.md` | Sentry setup, real-device testing, error tracking, final sign-off with user |
 
 ---
 
@@ -192,12 +260,16 @@ When the user asks you to review their mobile app, follow this EXACT workflow:
 | Target SDK | [detected] |
 ```
 
-### Step 1-10: Code Analysis Phases
+### Step 1-10: Code Analysis Phases (+ Fresh-Eyes)
 - Read the corresponding phase file (01 through 10)
 - Execute ALL checks in that phase
 - Produce the phase report with citations
 - Complete the gate checklist
 - STOP and report before proceeding
+- **At Phase 10**: After the standard report, perform the **MANDATORY FRESH-EYES RE-ANALYSIS** (Rule 10)
+  - Re-read all critical files with hacker mindset
+  - Produce `🔍 FRESH-EYES FINDINGS` section
+  - Recalculate health score if new issues found
 
 ### Step 11: Structured Remediation
 After the user reviews the Phase 10 report and requests fixes:
@@ -215,18 +287,33 @@ After fixes are applied:
 - Produce store readiness matrix with YES/NO verdict
 - If issues found → go back to Phase 11 to fix → then re-check Phase 12
 
+### Step 13: Pre-Delivery Sentry Validation (FINAL STEP)
+After Phase 12 passes:
+- Read `13-pre-delivery-sentry-validation.md`
+- Guide the user step-by-step through Sentry setup (treat them as non-technical)
+- Walk through real-device testing scenarios
+- Ask the user to share Sentry results → analyze them
+- Produce the FINAL delivery verdict
+- This is the LAST gate before the app reaches real users
+
 ### Complete Workflow Cycle:
 ```
-Analyze (1-10) → Report → Fix (11) → Re-Analyze (1-10) → Store Check (12)
-    ↓                                                         ↓
-    ↓                                              Issues? → Fix (11) → Re-Check (12)
-    ↓                                                         ↓
-    ↓                                              Clean? → ✅ READY TO PUBLISH
+Analyze (1-10 + Fresh-Eyes) → Report → Fix (11) → Re-Analyze (1-10) → Store Check (12)
+    ↓                                                                       ↓
+    ↓                                                    Issues? → Fix (11) → Re-Check (12)
+    ↓                                                                       ↓
+    ↓                                                    Clean? → Sentry Validation (13)
+    ↓                                                                       ↓
+    ↓                                                    Sentry Issues? → Fix (11) → Re-Check (12+13)
+    ↓                                                                       ↓
+    ↓                                                    All Clean? → ✅ READY TO PUBLISH
     ↓
 The cycle repeats until:
   ✅ Zero 🔴 Critical findings
   ✅ Zero 🟠 High findings
+  ✅ Fresh-Eyes re-analysis found ZERO new Critical/High issues
   ✅ Phase 12 verdict = 🟢 READY
+  ✅ Phase 13 Sentry validation = 🟢 CLEAN
   ✅ User confirms final sign-off
 ```
 
@@ -248,6 +335,7 @@ When executing each phase, you MUST read the corresponding file for detailed ins
 - Phase 10: Read `10-final-delivery-checklist.md` in this skill folder
 - Phase 11 *(optional)*: Read `11-remediation-execution.md` in this skill folder
 - Phase 12: Read `12-store-commercial-readiness.md` in this skill folder
+- Phase 13: Read `13-pre-delivery-sentry-validation.md` in this skill folder
 
 Additionally, refer to `ref-common-bugs-database.md` for a database of 200+ common
 mobile app bugs categorized by type, framework, and severity.
@@ -262,15 +350,15 @@ the following enforcement mechanisms are built into every phase:
 ### Mechanism 1: Proof-of-Work Citations
 Every phase requires a MINIMUM number of code citations. If you produce fewer, you have
 not been thorough enough:
-- Phase 1 (Architecture): Minimum 5 citations
-- Phase 2 (UI/UX): Minimum 8 citations
-- Phase 3 (Logic): Minimum 8 citations
-- Phase 4 (Security): Minimum 10 citations
-- Phase 5 (Performance): Minimum 6 citations
-- Phase 6 (Platform): Minimum 5 citations
-- Phase 7 (API/Network): Minimum 6 citations
-- Phase 8 (State): Minimum 5 citations
-- Phase 9 (Error Handling): Minimum 6 citations
+- Phase 1 (Architecture): Minimum 8 citations
+- Phase 2 (UI/UX): Minimum 12 citations
+- Phase 3 (Logic): Minimum 12 citations
+- Phase 4 (Security): Minimum 15 citations
+- Phase 5 (Performance): Minimum 8 citations
+- Phase 6 (Platform): Minimum 8 citations
+- Phase 7 (API/Network): Minimum 10 citations
+- Phase 8 (State): Minimum 8 citations
+- Phase 9 (Error Handling): Minimum 10 citations
 
 These are MINIMUM citations. Good reviews typically produce 2-3x these numbers.
 Citations can be findings OR explicit "this code is correct because..." confirmations.

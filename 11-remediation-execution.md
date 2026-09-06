@@ -119,6 +119,51 @@ After every fix, include this block:
 
 If verdict is ⚠️ or 🔴 → you MUST revise the fix before applying it.
 
+### Rule R6: INDEPENDENT VERIFICATION AFTER ALL FIXES (HACKER MINDSET)
+After completing ALL sprint fixes, you MUST switch perspective from "Fix Engineer" to
+"Ethical Hacker" and perform a targeted security re-assessment of ALL modified code.
+
+```
+🚫 DO NOT skip this — fixes often introduce NEW vulnerabilities
+🚫 DO NOT assume your fix is safe just because it addresses the original finding
+✅ RE-READ every modified file as if you are trying to ATTACK the application
+✅ CHECK each fix for unintended side effects
+✅ VERIFY no new attack surface was created
+```
+
+**HACKER MINDSET VERIFICATION CHECKLIST (must complete ALL):**
+
+```
+For EVERY file modified during remediation:
+  ❑ 1. Can I bypass the fix by providing unexpected input?
+  ❑ 2. Does the fix handle ALL edge cases? (null, empty, overflow, negative)
+  ❑ 3. Does the fix create a new timing/race condition?
+  ❑ 4. Does the fix leak information in error messages or logs?
+  ❑ 5. Does the fix properly validate on SERVER-SIDE? (not just client)
+  ❑ 6. If this fix touches auth/payment → can it be replayed or tampered?
+  ❑ 7. Does the fix introduce a new dependency? → Is that dependency secure?
+  ❑ 8. Can the fix be circumvented by a rooted/jailbroken device?
+  ❑ 9. Does the fix break any existing security control?
+  ❑ 10. Would a penetration tester find this fix adequate?
+```
+
+**FORMAT FOR RULE R6 VERIFICATION:**
+After ALL sprints, include this block:
+
+```markdown
+### 🔍 Rule R6 — Hacker Mindset Verification Report
+
+| File Modified | R6 Check Result | New Issues Found |
+|--------------|----------------|-----------------|
+| `path/to/file.ext` | ✅ SECURE / ⚠️ CONCERN | [description or NONE] |
+
+**Overall R6 Verdict:** ✅ All fixes verified / ⚠️ [N] concerns found → must address
+**New attack surfaces created:** [NONE / describe]
+**Recommendation:** [Safe to proceed / Needs additional fixes]
+```
+
+If R6 finds new concerns → create additional findings and fix them BEFORE proceeding.
+
 ---
 
 ## 📋 FIX EXECUTION FORMAT

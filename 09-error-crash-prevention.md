@@ -1,5 +1,9 @@
 # Phase 9: Error & Crash Prevention 🛡️
 
+> ⚡ **REMINDER:** After completing this phase, Phase 10 requires a **MANDATORY FRESH-EYES
+> RE-ANALYSIS** where you must re-read ALL critical files as a different AI agent.
+> Do NOT forget this when you reach Phase 10. It is the MOST IMPORTANT step.
+
 > **Objective:** Audit every error handling path in the app. Find unhandled exceptions,
 > empty catch blocks, missing null checks, and crash-inducing edge cases. The goal is
 > ZERO unhandled crashes reaching the user.

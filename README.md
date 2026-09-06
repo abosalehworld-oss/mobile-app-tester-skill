@@ -25,6 +25,7 @@ When installed, your AI agent becomes a **professional mobile app QA engineer** 
 - ✅ **Final Delivery** — Executive summary, cross-reference proof matrix
 - 🔧 **Structured Remediation (Phase 11)** — Safely fixes discovered issues via strict before/after diffs and automatic security re-checks for all new code.
 - 🏪 **Store & Commercial Readiness (Phase 12)** — Verifies App Store/Google Play policies, payment gateway security (Stripe/PayPal), and subscription protection before final release.
+- 🛡️ **Pre-Delivery Sentry Validation (Phase 13)** — Real-device error tracking setup with step-by-step guidance, crash reporting, and final deployment verdict.
 
 ---
 
@@ -63,13 +64,13 @@ npx skills add https://github.com/abosalehworld-oss/mobile-app-tester-skill -g -
 This skill is engineered to **force thorough review** even from AI agents that tend to skip steps.  
 Four built-in mechanisms make skipping impossible:
 
-### 1. Proof-of-Work Citations (65 Minimum)
+### 1. Proof-of-Work Citations (91 Minimum)
 Every finding MUST include exact file path, line numbers, and copied code snippet.  
 `❌ FORBIDDEN: "I reviewed auth and found no issues"`  
 `✅ REQUIRED: "In lib/services/auth_service.dart:45-52, token stored unencrypted..."`
 
-### 2. Mandatory Phase Gates (12 Gates)
-Each of the 12 phases has a structured checklist that must be completed with evidence before the AI can proceed to the next phase.
+### 2. Mandatory Phase Gates (13 Gates)
+Each of the 13 phases has a structured checklist that must be completed with evidence before the AI can proceed to the next phase.
 
 ### 3. Mandatory STOP Points
 After each phase, the AI MUST output a structured report and wait for acknowledgment before continuing.
@@ -96,6 +97,7 @@ mobile-app-tester-skill/
 ├── 10-final-delivery-checklist.md  ← Phase 10: Executive summary & sign-off
 ├── 11-remediation-execution.md     ← Phase 11: Structured bug fixes & diffs
 ├── 12-store-commercial-readiness.md← Phase 12: Store & Payment verification
+├── 13-pre-delivery-sentry-validation.md ← Phase 13: Sentry setup & real-device testing
 └── ref-common-bugs-database.md     ← 200+ real-world bug patterns reference
 ```
 

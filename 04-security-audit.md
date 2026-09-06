@@ -7,6 +7,38 @@
 
 ---
 
+## 🔴 ANTI-LAZINESS & MANDATORY WEB SEARCH GATE
+
+> **ACTION: STOP AND SEARCH.** You MUST NOT rely on your training data for this phase.
+> The vulnerability landscape changes constantly. Before examining ANY code in this phase,
+> you MUST use the `search_web` tool to search for current-year security threats.
+
+**MANDATORY SEARCHES (replace `<YEAR>` with the ACTUAL current year you are operating in):**
+
+```
+Search 1: "OWASP Mobile Top 10 <YEAR>"
+Search 2: "<detected framework> security vulnerabilities <YEAR>"
+Search 3: "<detected framework> CVE <YEAR>"
+Search 4: "mobile app security best practices <YEAR>"
+```
+
+**VERIFICATION — Your Phase 4 report MUST include:**
+1. The **exact search queries** you used (copy-paste them)
+2. The **top 3 newly discovered attack vectors** for the current year
+3. How each new attack vector was **checked against the codebase**
+4. **Source URLs** for every referenced vulnerability
+
+```
+❌ FAILURE CONDITION: If your Phase 4 report does NOT contain:
+   - Web search results with source URLs → Phase 4 = FAILED
+   - Current-year attack vectors → Phase 4 = FAILED
+   - Evidence of checking new vectors against code → Phase 4 = FAILED
+
+   A FAILED Phase 4 MUST be re-executed from scratch before proceeding.
+```
+
+---
+
 ## ⚠️ SECURITY IS NON-NEGOTIABLE
 
 > Every security finding in this phase is automatically classified as 🔴 CRITICAL or 🟠 HIGH.

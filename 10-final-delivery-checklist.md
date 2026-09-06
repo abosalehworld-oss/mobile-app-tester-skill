@@ -1,8 +1,28 @@
-# Phase 10: Final Delivery Checklist ✅
+# Phase 10: Final Delivery Checklist + FRESH-EYES RE-ANALYSIS ✅
 
 > **Objective:** This is the FINAL GATE. Consolidate all findings from Phases 1-9,
 > produce the executive summary, cross-reference matrix, priority remediation plan,
 > and sign-off report. NO FINDING MAY BE LEFT UNDOCUMENTED.
+
+---
+
+## 🔴🔴🔴 STOP — READ THIS BEFORE ANYTHING ELSE 🔴🔴🔴
+
+> **YOU HAVE A MANDATORY TASK IN THIS PHASE THAT YOU MUST NOT FORGET.**
+>
+> After producing the Cross-Reference Matrix and Executive Summary, you MUST perform
+> the **FRESH-EYES RE-ANALYSIS** (Rule 10 from SKILL.md). This is NOT optional.
+>
+> **What is Fresh-Eyes?** You must RE-READ every critical file (authentication, payments,
+> encryption, data storage, API calls) as if you are a DIFFERENT AI agent seeing the code
+> for the FIRST TIME. Your goal is to find what you MISSED in Phases 1-9.
+>
+> **Why?** Because AI agents consistently miss Critical/High vulnerabilities on first pass.
+> A real test proved that a fresh agent found 2+ Critical bugs that were completely missed.
+>
+> **If you skip Fresh-Eyes, this entire review is INVALID.**
+>
+> Scroll to the bottom of this file for the full Fresh-Eyes execution instructions.
 
 ---
 
@@ -120,16 +140,16 @@ THIS IS THE ANTI-SKIP PROOF. Complete this ENTIRE matrix honestly.
 
 | Phase | Files Read | Findings | Citations | Gate Status |
 |-------|-----------|----------|-----------|-------------|
-| 1. Architecture Review | [n] | [n] | [n] / 5 min | PASS/FAIL |
-| 2. UI/UX Testing | [n] | [n] | [n] / 8 min | PASS/FAIL |
-| 3. Logic & Functional | [n] | [n] | [n] / 8 min | PASS/FAIL |
-| 4. Security Audit | [n] | [n] | [n] / 10 min | PASS/FAIL |
-| 5. Performance | [n] | [n] | [n] / 6 min | PASS/FAIL |
-| 6. Platform Compatibility | [n] | [n] | [n] / 5 min | PASS/FAIL |
-| 7. API & Network | [n] | [n] | [n] / 6 min | PASS/FAIL |
-| 8. State & Data | [n] | [n] | [n] / 5 min | PASS/FAIL |
-| 9. Error & Crash | [n] | [n] | [n] / 6 min | PASS/FAIL |
-| **TOTALS** | **[N]** | **[N]** | **[N] / 65** | **[X]/9** |
+| 1. Architecture Review | [n] | [n] | [n] / 8 min | PASS/FAIL |
+| 2. UI/UX Testing | [n] | [n] | [n] / 12 min | PASS/FAIL |
+| 3. Logic & Functional | [n] | [n] | [n] / 12 min | PASS/FAIL |
+| 4. Security Audit | [n] | [n] | [n] / 15 min | PASS/FAIL |
+| 5. Performance | [n] | [n] | [n] / 8 min | PASS/FAIL |
+| 6. Platform Compatibility | [n] | [n] | [n] / 8 min | PASS/FAIL |
+| 7. API & Network | [n] | [n] | [n] / 10 min | PASS/FAIL |
+| 8. State & Data | [n] | [n] | [n] / 8 min | PASS/FAIL |
+| 9. Error & Crash | [n] | [n] | [n] / 10 min | PASS/FAIL |
+| **TOTALS** | **[N]** | **[N]** | **[N] / 91** | **[X]/9** |
 ```
 
 ```
@@ -137,7 +157,7 @@ VALIDATION RULES:
   ❌ If any phase has 0 files read → REVIEW IS INCOMPLETE
   ❌ If any phase has citations below minimum → REVIEW IS INCOMPLETE
   ❌ If any gate is FAIL → THAT PHASE MUST BE RE-EXECUTED
-  ❌ If total citations < 65 → REVIEW LACKS DEPTH
+  ❌ If total citations < 91 → REVIEW LACKS DEPTH
 ```
 
 ### COMPONENT F3: Critical Path — Top Issues
@@ -375,3 +395,64 @@ After the review, recommend:
    - Performance review: every 2 weeks
    - Dependency update: monthly
    - Full QA review: every major feature addition
+
+---
+
+## 🔍 MANDATORY FRESH-EYES RE-ANALYSIS (EXECUTE NOW)
+
+> **🔴 YOU MUST EXECUTE THIS SECTION BEFORE FINALIZING YOUR REPORT.**
+> **🔴 IF YOU ALREADY PRODUCED THE EXECUTIVE SUMMARY ABOVE, YOU ARE NOT DONE.**
+> **🔴 THIS IS THE MOST IMPORTANT PART OF THE ENTIRE REVIEW.**
+
+### What You Must Do:
+
+```
+1. FORGET everything you think you know about this codebase
+2. RE-READ every file that handles:
+   ☑ Authentication (login, tokens, sessions, biometrics)
+   ☑ Payments (in-app purchases, payment gateways, receipt validation)
+   ☑ Encryption (data at rest, data in transit, key management)
+   ☑ Data Storage (local DB, SharedPreferences, Keychain/Keystore)
+   ☑ API Calls (auth headers, token refresh, sensitive data in URLs)
+   ☑ User Input (forms, file pickers, deep links, push notification data)
+3. For each file, ask: "If I were a HACKER, how would I exploit this?"
+4. Document ALL new findings with [FRESH] prefix
+```
+
+### Fresh-Eyes Checklist (must complete ALL):
+```
+  ❑ 1. Re-examine ALL authentication code — look for token leakage, session hijacking
+  ❑ 2. Re-examine ALL payment code — look for price manipulation, receipt forgery
+  ❑ 3. Re-examine ALL encryption — look for weak algorithms, hardcoded keys
+  ❑ 4. Re-examine ALL data storage — look for unencrypted PII, insecure storage
+  ❑ 5. Re-examine ALL API calls — look for missing auth, data exposure
+  ❑ 6. Re-examine ALL deep links — look for injection, unauthorized access
+  ❑ 7. Search for NEW patterns not in OWASP Mobile Top 10 (current year CVEs)
+  ❑ 8. Verify ALL "no issues found" claims from Phases 1-9
+```
+
+### Fresh-Eyes Report Format:
+```markdown
+## 🔍 FRESH-EYES RE-ANALYSIS RESULTS
+
+| Category | Files Re-Examined | New Findings |
+|----------|------------------|-------------|
+| Authentication | [count] | [count] |
+| Payments | [count] | [count] |
+| Encryption | [count] | [count] |
+| Data Storage | [count] | [count] |
+| API Calls | [count] | [count] |
+| Deep Links | [count] | [count] |
+
+**Fresh-Eyes Verdict:** ✅ No new Critical/High found / ⚠️ [N] new issues found
+
+If new Critical/High found:
+  → Add to findings registry with [FRESH] prefix
+  → Recalculate health score
+  → Update release recommendation
+```
+
+> **⚠️ WHY THIS EXISTS:** A fresh AI agent in a new chat found CRITICAL vulnerabilities
+> that were completely missed by the first-pass analysis. This section forces you to
+> simulate that "fresh chat" effect. ONE PASS IS NEVER ENOUGH.
+
