@@ -15,6 +15,29 @@
 
 ---
 
+## 🚨 ANTI-CHEATING RULES FOR THIS PHASE
+
+### Rule OT-A: MANDATORY `run_command` PROOF
+> Every tool execution MUST be performed via an actual `run_command` / terminal tool call.
+> You MUST show the **real terminal output** — not text you wrote from memory.
+> **Writing fake tool output = CHEATING.** If you cannot run the command, mark as MANUAL_CHECK.
+> The user can verify by checking the tool call history in the conversation.
+
+### Rule OT-B: MAXIMUM 2 MANUAL_CHECK ALLOWED
+> You may mark **at most 2 checks** as MANUAL_CHECK due to tool unavailability.
+> If 3 or more tools fail to install, you MUST troubleshoot or try alternative installation
+> methods (pip, npm, brew, choco, scoop, docker, direct download).
+> **Claiming all tools are unavailable = PHASE INVALID. Start over.**
+
+### Rule OT-C: HACKER MINDSET R6 ON ALL FIXES
+> If you fix any finding in this phase, you MUST apply Rule R6 (Hacker Mindset Verification):
+> 1. Can the fix be bypassed?
+> 2. Does the fix create a new vulnerability?
+> 3. Would a penetration tester find this fix adequate?
+> **No R6 verification = fix is NOT accepted.**
+
+---
+
 ## 🛠️ TOOL INSTALLATION
 
 Before running any tests, install the required tools. Execute these commands and document the results:
