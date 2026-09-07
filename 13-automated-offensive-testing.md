@@ -36,6 +36,21 @@
 > 3. Would a penetration tester find this fix adequate?
 > **No R6 verification = fix is NOT accepted.**
 
+### Rule OT-D: MANDATORY DATABASE FRESHNESS
+> Before running ANY scan, you MUST update the tool's vulnerability database first.
+> Run these update commands and show the output:
+> ```
+> # Nuclei templates
+> nuclei -update-templates
+> # Trivy database
+> trivy --download-db-only
+> # nikto database
+> nikto -update
+> ```
+> You MUST also run a **web search** for "latest [tool-name] version [current-year]" to verify
+> you are using the most current version. Scanning with outdated databases = scanning blind.
+> **If the database update fails, document the error and mark the check as PARTIAL.**
+
 ---
 
 ## 🛠️ TOOL INSTALLATION

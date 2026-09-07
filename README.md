@@ -1,7 +1,6 @@
 # Mobile App Comprehensive Tester Skill 📱
 
-**The most thorough AI-powered mobile application testing skill on the market.**  
-Transform any AI agent into a Senior Mobile QA Engineer through 12 structured review and remediation phases, mandatory gates, and an anti-laziness enforcement system that guarantees real code citations for every finding.
+Transform any AI agent into a Senior Mobile QA Engineer through 14 structured review and remediation phases, mandatory gates, and an anti-laziness enforcement system that guarantees real code citations for every finding.
 
 [![skills.sh](https://img.shields.io/badge/skills.sh-compatible-brightgreen)](https://skills.sh)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -25,7 +24,8 @@ When installed, your AI agent becomes a **professional mobile app QA engineer** 
 - ✅ **Final Delivery** — Executive summary, cross-reference proof matrix
 - 🔧 **Structured Remediation (Phase 11)** — Safely fixes discovered issues via strict before/after diffs and automatic security re-checks for all new code.
 - 🏪 **Store & Commercial Readiness (Phase 12)** — Verifies App Store/Google Play policies, payment gateway security (Stripe/PayPal), and subscription protection before final release.
-- 🛡️ **Pre-Delivery Sentry Validation (Phase 13)** — Real-device error tracking setup with step-by-step guidance, crash reporting, and final deployment verdict.
+- 🔴 **Automated Offensive Testing (Phase 13)** — AI runs real security tools (MobSF, apkleaks, nmap) against your APK/IPA with mandatory database freshness updates and anti-cheating enforcement.
+- 🛡️ **Pre-Delivery Sentry Validation (Phase 14)** — Real-device error tracking setup with step-by-step guidance, crash reporting, and final deployment verdict.
 
 ---
 
@@ -59,24 +59,39 @@ npx skills add https://github.com/abosalehworld-oss/mobile-app-tester-skill -g -
 
 ---
 
-## 🛡️ Anti-Laziness Enforcement System
+## 🛡️ Anti-Laziness Enforcement System (10 Layers)
 
-This skill is engineered to **force thorough review** even from AI agents that tend to skip steps.  
-Four built-in mechanisms make skipping impossible:
+This skill is engineered to **force thorough review** even from AI agents that tend to skip steps.
 
-### 1. Proof-of-Work Citations (91 Minimum)
-Every finding MUST include exact file path, line numbers, and copied code snippet.  
-`❌ FORBIDDEN: "I reviewed auth and found no issues"`  
-`✅ REQUIRED: "In lib/services/auth_service.dart:45-52, token stored unencrypted..."`
+### 1. Proof-of-Work Citations (111 Minimum)
+Every finding MUST include exact file path, line numbers, and copied code snippet.
 
-### 2. Mandatory Phase Gates (13 Gates)
-Each of the 13 phases has a structured checklist that must be completed with evidence before the AI can proceed to the next phase.
+### 2. Mandatory Phase Gates (14 Gates)
+Each of the 14 phases has a structured checklist that must be completed with evidence before the AI can proceed to the next phase.
 
 ### 3. Mandatory STOP Points
 After each phase, the AI MUST output a structured report and wait for acknowledgment before continuing.
 
 ### 4. Cross-Reference Verification Matrix
 The final phase requires a matrix proving every file was examined with citation counts — if any phase shows 0 files, the entire review is declared invalid.
+
+### 5. Fresh-Eyes Re-Analysis (4-Layer Reminder)
+After all analysis phases, the AI performs a second independent pass — proven to catch Critical bugs missed on first pass.
+
+### 6. Hacker Mindset R6
+After every fix, the AI verifies from an attacker's perspective that no new vulnerabilities were introduced.
+
+### 7. Anti-Premature-Celebration
+AI is blocked from declaring "done" after remediation — there are still offensive testing and Sentry phases remaining.
+
+### 8. 🆕 Mandatory `run_command` Proof (Phase 13)
+Every security tool execution MUST be via real terminal commands — fabricating tool output = cheating.
+
+### 9. 🆕 Maximum 2 MANUAL_CHECK (Phase 13)
+AI cannot claim all tools are unavailable — at most 2 checks can be manual, rest must use real tools.
+
+### 10. 🆕 Mandatory Database Freshness (Phase 13)
+AI MUST update vulnerability databases before scanning + web search for latest tool versions.
 
 ---
 
@@ -97,7 +112,8 @@ mobile-app-tester-skill/
 ├── 10-final-delivery-checklist.md  ← Phase 10: Executive summary & sign-off
 ├── 11-remediation-execution.md     ← Phase 11: Structured bug fixes & diffs
 ├── 12-store-commercial-readiness.md← Phase 12: Store & Payment verification
-├── 13-pre-delivery-sentry-validation.md ← Phase 13: Sentry setup & real-device testing
+├── 13-automated-offensive-testing.md ← Phase 13: MobSF, apkleaks, nmap, CVE scans
+├── 14-pre-delivery-sentry-validation.md ← Phase 14: Sentry setup & real-device testing
 └── ref-common-bugs-database.md     ← 200+ real-world bug patterns reference
 ```
 
