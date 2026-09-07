@@ -208,6 +208,69 @@ current-year vulnerabilities BEFORE examining any code. Your training data is ST
    with source URLs, the ENTIRE Phase 4 is marked as FAILED and must be re-done.
 ```
 
+### Rule 12: FRESH-EYES TOOL CALL VERIFICATION (ANTI-CHEATING)
+The Fresh-Eyes Re-Analysis MUST include actual `view_file` tool calls for every critical file.
+Reading from memory/context is NOT a fresh analysis — it is the SAME stale analysis.
+
+```
+❌ CHEATING: Writing Fresh-Eyes findings without calling view_file on each critical file
+❌ CHEATING: Claiming "I re-examined file X" without a corresponding view_file tool call
+❌ CHEATING: Producing Fresh-Eyes results immediately after the summary without tool calls
+✅ REQUIRED: Call view_file for EACH critical file BEFORE writing Fresh-Eyes findings
+✅ REQUIRED: List each view_file call as proof in your Fresh-Eyes section
+✅ REQUIRED: Minimum 1 view_file call per critical category (auth, payments, storage, API)
+
+VERIFICATION: If your Fresh-Eyes section does NOT have corresponding view_file tool
+calls preceding it in the conversation, the Fresh-Eyes is INVALID and MUST be re-executed.
+
+⚠️ WHY: AI agents consistently shortcut Fresh-Eyes by writing from memory.
+   This defeats the purpose. The view_file requirement forces ACTUAL re-reading.
+```
+
+### Rule 13: CONTEXT DECAY PROTECTION
+AI context windows degrade over long conversations. To prevent analysis quality decline:
+
+```
+✅ Every phase MUST contain at least 1 view_file tool call
+✅ If 3+ phases passed since your last view_file on a core file, re-read it
+✅ NEVER claim line numbers without a recent view_file for that file
+❌ NEVER analyze an entire phase purely from memory
+❌ NEVER produce a phase report with 0 view_file tool calls
+```
+
+### Rule 14: REMEDIATION BUILD VERIFICATION
+After applying code fixes in Phase 11 (Structured Remediation), you MUST verify changes:
+
+```
+✅ After EACH fix: Re-read the modified file with view_file to confirm edits applied
+✅ After EACH sprint: Run the project's build/compile command if available
+✅ After ALL fixes: Run the project's test suite if available
+❌ NEVER claim "fix applied successfully" without re-reading the file with view_file
+❌ NEVER skip build verification — a fix that breaks the build is worse than the bug
+❌ NEVER move to the next sprint if the current sprint has build/syntax errors
+
+VERIFICATION COMMANDS (attempt after each sprint):
+  - Flutter/Dart: flutter analyze && dart analyze
+  - React Native: npx react-native start or npm run build
+  - Kotlin/Android: ./gradlew assembleDebug
+  - Swift/iOS: xcodebuild -scheme <scheme> build
+  - Xamarin/MAUI: dotnet build
+  - General: At minimum, view_file on every modified file to verify correctness
+```
+
+### Rule 15: CITATION INTEGRITY — NO PADDING
+Citations must represent GENUINE analysis, not padding to meet minimums:
+
+```
+✅ Each citation must reference a SPECIFIC line number verified by view_file
+✅ Positive citations ("done correctly") must explain WHY with technical depth
+✅ Each citation must teach the reader something non-obvious about the code
+❌ NEVER pad citations with vague praise like "Good use of X" without explaining why
+❌ NEVER cite the same code pattern multiple times to inflate count
+❌ NEVER cite trivial boilerplate (imports, empty constructors, etc.) as findings
+❌ NEVER count a citation unless you have the actual file content from view_file
+```
+
 ---
 
 ## 📋 PHASE OVERVIEW

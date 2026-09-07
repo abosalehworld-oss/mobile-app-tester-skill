@@ -403,6 +403,10 @@ After the review, recommend:
 > **🔴 YOU MUST EXECUTE THIS SECTION BEFORE FINALIZING YOUR REPORT.**
 > **🔴 IF YOU ALREADY PRODUCED THE EXECUTIVE SUMMARY ABOVE, YOU ARE NOT DONE.**
 > **🔴 THIS IS THE MOST IMPORTANT PART OF THE ENTIRE REVIEW.**
+> 
+> **⚠️ TOOL CALL REQUIREMENT:** You MUST call `view_file` on each critical file below.
+> Writing findings from memory is CHEATING and invalidates the entire review.
+> Your Fresh-Eyes section MUST be preceded by view_file tool calls as proof of re-reading.
 
 ### What You Must Do:
 
@@ -429,6 +433,7 @@ After the review, recommend:
   ❑ 6. Re-examine ALL deep links — look for injection, unauthorized access
   ❑ 7. Search for NEW patterns not in OWASP Mobile Top 10 (current year CVEs)
   ❑ 8. Verify ALL "no issues found" claims from Phases 1-9
+  □ Fresh-Eyes includes view_file tool calls as proof of re-reading
 ```
 
 ### Fresh-Eyes Report Format:
