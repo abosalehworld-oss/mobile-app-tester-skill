@@ -2,7 +2,7 @@
 name: mobile-app-tester-comprehensive
 description: >
   Comprehensive mobile application testing skill that transforms any AI agent into a
-  professional mobile app QA tester. Covers 13 phases: architecture review, UI/UX testing,
+  professional mobile app QA tester. Covers 14 phases: architecture review, UI/UX testing,
   logic & functional testing, security auditing (OWASP Mobile Top 10 with MANDATORY
   current-year web search), performance optimization, platform compatibility, API/network
   resilience, state management, error/crash prevention, final delivery verification with
@@ -41,7 +41,7 @@ Every single finding MUST include:
 ✅ REQUIRED: "In `lib/services/auth_service.dart:45-52`, the token is stored using `SharedPreferences.setString('token', rawToken)` without encryption. This exposes the token to any app with root access. Fix: Use `flutter_secure_storage` instead."
 
 ### Rule 2: MANDATORY PHASE GATES
-This review has **13 phases**. Each phase has a **GATE** — a mandatory checklist that must be
+This review has **14 phases**. Each phase has a **GATE** — a mandatory checklist that must be
 completed with evidence BEFORE proceeding to the next phase.
 
 ```
@@ -302,7 +302,8 @@ Citations must represent GENUINE analysis, not padding to meet minimums:
 | 10 | Final Delivery + Fresh-Eyes | `10-final-delivery-checklist.md` | Complete checklist, priority matrix, **FRESH-EYES re-analysis**, sign-off |
 | 11 | Structured Remediation *(optional)* | `11-remediation-execution.md` | Sprint-based fixes with verification gates |
 | 12 | Store & Commercial Readiness | `12-store-commercial-readiness.md` | Store policies, payments, monetization, legal |
-| 13 | Pre-Delivery Sentry Validation | `13-pre-delivery-sentry-validation.md` | Sentry setup, real-device testing, error tracking, final sign-off with user |
+| 13 | Automated Offensive Testing | `13-automated-offensive-testing.md` | MobSF, hardcoded secrets, network testing, dependency vulnerabilities |
+| 14 | Pre-Delivery Sentry Validation | `14-pre-delivery-sentry-validation.md` | Sentry setup, real-device testing, error tracking, final sign-off with user |
 
 ---
 
@@ -365,7 +366,7 @@ After fixes are applied:
 
 ### Step 13: Pre-Delivery Sentry Validation (FINAL STEP)
 After Phase 12 passes:
-- Read `13-pre-delivery-sentry-validation.md`
+- Read `14-pre-delivery-sentry-validation.md`
 - Guide the user step-by-step through Sentry setup (treat them as non-technical)
 - Walk through real-device testing scenarios
 - Ask the user to share Sentry results → analyze them
@@ -389,7 +390,7 @@ The cycle repeats until:
   ✅ Zero 🟠 High findings
   ✅ Fresh-Eyes re-analysis found ZERO new Critical/High issues
   ✅ Phase 12 verdict = 🟢 READY
-  ✅ Phase 13 Sentry validation = 🟢 CLEAN
+  ✅ Phase 14 Sentry validation = 🟢 CLEAN
   ✅ User confirms final sign-off
 ```
 
@@ -411,7 +412,8 @@ When executing each phase, you MUST read the corresponding file for detailed ins
 - Phase 10: Read `10-final-delivery-checklist.md` in this skill folder
 - Phase 11 *(optional)*: Read `11-remediation-execution.md` in this skill folder
 - Phase 12: Read `12-store-commercial-readiness.md` in this skill folder
-- Phase 13: Read `13-pre-delivery-sentry-validation.md` in this skill folder
+- Phase 13: Read `13-automated-offensive-testing.md` in this skill folder
+- Phase 14: Read `14-pre-delivery-sentry-validation.md` in this skill folder
 
 Additionally, refer to `ref-common-bugs-database.md` for a database of 200+ common
 mobile app bugs categorized by type, framework, and severity.

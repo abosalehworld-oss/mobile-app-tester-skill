@@ -2,6 +2,21 @@
 
 All notable changes to the Mobile App Tester Skill are documented here.
 
+## [2.2.0] - 2026-09-08
+
+### Added
+- **Phase 13: Automated Offensive Security Testing** (`13-automated-offensive-testing.md`)
+  - MobSF automated APK/IPA security scanning
+  - Hardcoded secrets detection (apkleaks)
+  - Network security testing (SSL/TLS verification)
+  - Dependency vulnerability scanning
+  - Runtime manipulation resistance checks
+  - 20 minimum citations from real tool outputs
+  - Tool unavailability protocol with manual fallback
+- Sentry validation renumbered to Phase 14
+- Total minimum citations raised from 91 to 111
+- Total phases raised from 13 to 14
+
 ## [2.0.0] - 2026-09-06
 
 ### Added
