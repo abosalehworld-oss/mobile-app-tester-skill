@@ -225,6 +225,11 @@ calls preceding it in the conversation, the Fresh-Eyes is INVALID and MUST be re
 
 ⚠️ WHY: AI agents consistently shortcut Fresh-Eyes by writing from memory.
    This defeats the purpose. The view_file requirement forces ACTUAL re-reading.
+
+⚠️ ANTI-DUMMY-CALL: Each view_file call must show at least 50 lines or the full file.
+   Viewing only lines 1-5 does NOT count as re-reading.
+   grep_search does NOT count as view_file — it shows fragments, not full context.
+   The viewed file MUST be one that handles the category being analyzed.
 ```
 
 ### Rule 13: CONTEXT DECAY PROTECTION
@@ -236,6 +241,8 @@ AI context windows degrade over long conversations. To prevent analysis quality 
 ✅ NEVER claim line numbers without a recent view_file for that file
 ❌ NEVER analyze an entire phase purely from memory
 ❌ NEVER produce a phase report with 0 view_file tool calls
+❌ NEVER satisfy this rule by viewing README.md, .gitignore, or non-code files
+✅ The view_file call MUST target a file containing code/config relevant to the phase
 ```
 
 ### Rule 14: REMEDIATION BUILD VERIFICATION
@@ -256,6 +263,12 @@ VERIFICATION COMMANDS (attempt after each sprint):
   - Swift/iOS: xcodebuild -scheme <scheme> build
   - Xamarin/MAUI: dotnet build
   - General: At minimum, view_file on every modified file to verify correctness
+
+⚠️ If you claim "no build command available", you MUST:
+   1. Show which commands you attempted and their exact error output
+   2. List project root files to prove no build system exists
+   3. Fall back to syntax validation (e.g., python -m py_compile for Python)
+   NEVER skip verification entirely — at minimum, view_file every changed file.
 ```
 
 ### Rule 15: CITATION INTEGRITY — NO PADDING
