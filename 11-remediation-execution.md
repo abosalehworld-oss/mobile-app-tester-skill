@@ -372,3 +372,24 @@ After ALL fixes are applied, you MUST re-run the relevant analysis:
 5. **Preserve Tests:** If tests exist, ensure they still pass after each fix.
    If no tests exist, note this in the verification but do NOT write tests in this phase
    (that's a separate task).
+
+---
+
+## ⛔ ANTI-PREMATURE-CELEBRATION RULE
+
+> **Phase 11 is the REMEDIATION phase ONLY — NOT the final phase.**
+> There are still remaining phases after this one (Phase 12: Store & Commercial Readiness, Phase 13: Pre-Delivery Sentry Validation).
+> **Do NOT declare the project "done", "production-ready", or "ready for deployment" after completing Phase 11.**
+> You MUST continue to the next phase and await user confirmation before proceeding.
+
+---
+
+## 💡 OPTIONAL: Run Actual Analysis Tools
+
+> If execution tools are available in your environment, prefer running actual commands over mental simulation:
+> - `flutter analyze` / `dart analyze` (Flutter/Dart)
+> - `npm audit` / `yarn audit` (React Native)
+> - `xcodebuild analyze` (iOS Native)
+> - `./gradlew lint` (Android Native)
+>
+> If these tools are NOT available, document this limitation in the sprint report.
