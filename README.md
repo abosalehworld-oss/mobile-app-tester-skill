@@ -59,7 +59,7 @@ npx skills add https://github.com/abosalehworld-oss/mobile-app-tester-skill -g -
 
 ---
 
-## 🛡️ Anti-Laziness Enforcement System (10 Layers)
+## 🛡️ Anti-Laziness Enforcement System (11 Layers)
 
 This skill is engineered to **force thorough review** even from AI agents that tend to skip steps.
 
@@ -84,14 +84,17 @@ After every fix, the AI verifies from an attacker's perspective that no new vuln
 ### 7. Anti-Premature-Celebration
 AI is blocked from declaring "done" after remediation — there are still offensive testing and Sentry phases remaining.
 
-### 8. 🆕 Mandatory `run_command` Proof (Phase 13)
+### 8. Mandatory `run_command` Proof (Phase 13)
 Every security tool execution MUST be via real terminal commands — fabricating tool output = cheating.
 
-### 9. 🆕 Maximum 2 MANUAL_CHECK (Phase 13)
+### 9. Maximum 2 MANUAL_CHECK (Phase 13)
 AI cannot claim all tools are unavailable — at most 2 checks can be manual, rest must use real tools.
 
-### 10. 🆕 Mandatory Database Freshness (Phase 13)
+### 10. Mandatory Database Freshness (Phase 13)
 AI MUST update vulnerability databases before scanning + web search for latest tool versions.
+
+### 11. 🆕 False Positive Triage with Live Web Search (Rule OT-E)
+Before fixing ANY security tool finding, the AI MUST: classify it as TRUE/FALSE positive, **run a live web search** to verify (training data may be stale), explain the vulnerability in plain language (non-experts can understand), detail fix side effects, and **STOP and wait for explicit user approval** on each individual finding. This prevents the AI from blindly "fixing" false positives and breaking the application.
 
 ---
 

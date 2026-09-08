@@ -29,6 +29,31 @@ description: >
 
 These rules are **NON-NEGOTIABLE**. Violating any of them makes your entire review INVALID.
 
+### 🚨🚨🚨 Rule 15: FALSE POSITIVE SAFETY — NEVER BLINDLY FIX TOOL FINDINGS 🚨🚨🚨
+> **THIS IS THE MOST DANGEROUS FAILURE MODE IN THIS ENTIRE SKILL.**
+> Automated security tools (MobSF, apkleaks, Trivy, nmap) produce **FALSE POSITIVES**.
+> If you blindly fix a false positive, you can **BREAK the application** — disable login, corrupt
+> data, crash the app, or block real users.
+>
+> **YOU ARE ABSOLUTELY FORBIDDEN FROM:**
+> ```
+> ❌ Fixing ANY tool finding without first completing Rule OT-E (False Positive Triage)
+> ❌ Classifying a finding as TRUE/FALSE positive without running a live web search to verify
+> ❌ Assuming the user understands security jargon — ALWAYS explain in plain language
+> ❌ Batch-fixing multiple findings without individual user approval for EACH one
+> ```
+>
+> **YOU MUST (for EVERY tool finding):**
+> ```
+> ✅ Classify it: TRUE_POSITIVE / FALSE_POSITIVE / UNCERTAIN
+> ✅ Run a web search to verify your classification (your training data may be stale)
+> ✅ Explain in plain language: what the vulnerability does, what the fix changes, what side effects it has
+> ✅ STOP and wait for the user to say "fix" or "skip" for EACH individual finding
+> ```
+>
+> **Full protocol details are in Rule OT-E inside the Automated Offensive Testing phase file.**
+> **If you skip this protocol, your ENTIRE review is FRAUDULENT and potentially DESTRUCTIVE.**
+
 ### Rule 1: CITATION OR IT DIDN'T HAPPEN
 Every single finding MUST include:
 - **File path** (exact relative path)

@@ -51,6 +51,66 @@
 > you are using the most current version. Scanning with outdated databases = scanning blind.
 > **If the database update fails, document the error and mark the check as PARTIAL.**
 
+### Rule OT-E: MANDATORY FALSE POSITIVE TRIAGE (BEFORE ANY FIX)
+> ⚠️ **This is the MOST CRITICAL safety rule in this phase.**
+> Automated security tools produce **FALSE POSITIVES** (fake alerts). Blindly fixing a false
+> positive can **BREAK the application** — disable login, corrupt data, or block real users.
+>
+> **BEFORE fixing ANY finding from ANY tool, you MUST complete this triage for EACH finding:**
+>
+> **Step 1 — Classify the finding:**
+> ```
+> | Finding ID | Tool | Verdict | Confidence | Reason |
+> |------------|------|---------|------------|--------|
+> | OT1-F1 | MobSF | TRUE_POSITIVE / FALSE_POSITIVE / UNCERTAIN | HIGH/MEDIUM/LOW | Why? |
+> ```
+>
+> **Step 2 — MANDATORY WEB SEARCH per finding (ANTI-STALE-KNOWLEDGE):**
+> Your training data is OUTDATED. You MUST NOT classify findings based on memory alone.
+> For EACH finding, run a web search:
+> ```
+> search_web("[CVE-ID or vulnerability name] false positive [tool-name] [current-year]")
+> search_web("[vulnerability name] [framework/library version] exploit proof of concept [current-year]")
+> ```
+> - If the internet says this CVE is **confirmed exploitable** in the detected version → TRUE_POSITIVE
+> - If the internet says this is a **known false positive** for this tool/version → FALSE_POSITIVE
+> - If no clear internet consensus exists → UNCERTAIN (present to user with extra caution)
+> **DO NOT trust your training data over live internet results. Your knowledge may be 1-2 years stale.**
+>
+> **Step 3 — For each TRUE_POSITIVE or UNCERTAIN finding, explain in PLAIN LANGUAGE:**
+> ```
+> 🔴 FINDING: [Tool] reported [vulnerability name]
+> 📍 WHERE: [file:line or endpoint]
+> 👶 EXPLAIN LIKE I'M 5: [How can a hacker exploit this? What damage can they do?]
+> 🔧 PROPOSED FIX: [What exactly will you change in the code?]
+> ⚠️ FIX SIDE EFFECTS: [Will this fix break any feature? Will users notice anything different?]
+> 🤔 FALSE POSITIVE RISK: [What is the probability this is a false alarm? Why?]
+> 🌐 WEB SEARCH EVIDENCE: [What did the internet say about this CVE/vulnerability?]
+> ```
+>
+> **Step 4 — Present the FULL triage table to the user and STOP.**
+> ```
+> ⛔ STOP — Do NOT fix anything until the user reviews this triage and says "fix" or "skip" for each finding.
+> ```
+>
+> **FORBIDDEN behaviors:**
+> ```
+> ❌ NEVER fix a finding without completing the triage table first
+> ❌ NEVER say "I fixed 5 vulnerabilities" without user approval on EACH one
+> ❌ NEVER assume the user understands security jargon — ALWAYS use plain language
+> ❌ NEVER hide the false positive probability — the user NEEDS this to make a decision
+> ❌ NEVER batch-fix all findings at once — present them individually for approval
+> ❌ NEVER classify a finding as FALSE_POSITIVE without a web search proving it
+> ❌ NEVER classify a finding as TRUE_POSITIVE without a web search confirming it
+> ```
+>
+> **WHY THIS EXISTS:** The user operating this skill may NOT be a cybersecurity expert.
+> They rely on YOUR analysis to decide what to fix. If you fix a false positive, you may
+> break their application. If you skip a true positive, you leave them vulnerable.
+> Your training data may be outdated — a vulnerability you "remember" as harmless may now
+> have a working exploit. The web search requirement ensures you use CURRENT intelligence.
+> **Your triage is the user's ONLY defense. Take it seriously.**
+
 ---
 
 ## 🛠️ TOOL INSTALLATION
@@ -174,12 +234,15 @@ Minimum citations: 3 findings
 
 ## 🔧 REMEDIATION WITHIN THIS PHASE
 
-Unlike Phases 1-12, you MAY fix Critical and High findings discovered in this phase immediately.
-For each fix:
+> ⚠️ **You MUST complete Rule OT-E (False Positive Triage) BEFORE fixing ANY finding.**
+> Do NOT skip the triage. Do NOT fix findings without explicit user approval for EACH one.
+
+After the user approves specific findings for fixing (via Rule OT-E triage), for each approved fix:
 1. Show the tool output that identified the vulnerability
 2. Apply the fix
 3. Re-run the specific tool to verify the fix worked
-4. Document before/after results
+4. Apply Rule OT-C (Hacker Mindset) to verify the fix doesn't create new problems
+5. Document before/after results
 
 ---
 
